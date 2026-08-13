@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MHDB491JLW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MHDB491JLW', { linker: { domains: ['sooniko.kr', 'swimmer101.sooniko.kr', 'swimmer101.pages.dev'] } });
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '976020977983160');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=976020977983160&ev=PageView&noscript=1"/></noscript>
+<!-- Kakao Pixel -->
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
+<script type="text/javascript">kakaoPixel('2046936635173982010').pageView();</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&amp;family=Noto+Sans+KR:wght@400;700;900&amp;family=Do+Hyeon&amp;family=Jua&amp;family=Black+Han+Sans&amp;family=Gowun+Dodum&amp;family=Nanum+Pen+Script&amp;family=IBM+Plex+Sans+KR:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'DungGeunMo'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/DungGeunMo.woff') format('woff'); font-weight:normal; font-style:normal; font-display:swap; }
+@font-face { font-family:'NeoDunggeunmo'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/DungGeunMo.woff') format('woff'); font-weight:normal; font-style:normal; font-display:swap; }
+</style>
+<script src="./image-slot.js"></script>
+
+<style>
+body { margin:0; background:#CDECF8; font-family:'DungGeunMo',monospace; -webkit-font-smoothing:none; overflow-x:hidden; }
+* { box-sizing:border-box; }
+img { max-width:100%; }
+a { color:#000; } a:hover { color:#2a6b93; }
+@keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+@keyframes titleFadeIn { 0%, 25% { opacity:0; } 50%, 75% { opacity:1; } 100% { opacity:0; } }
+@keyframes titleFadeOut { 0%, 25% { opacity:1; } 50%, 75% { opacity:0; } 100% { opacity:1; } }
+@keyframes cardFlip { 0% { transform:perspective(900px) rotateY(-180deg) scale(0.86); opacity:0; } 45% { opacity:1; } 100% { transform:none; opacity:1; } }
+@keyframes memoryFade { from { opacity:0; } to { opacity:1; } }
+@keyframes swimPan { 0% { opacity:0; transform:translateX(-100%); } 8% { opacity:1; } 100% { opacity:1; transform:translateX(0); } }
+@keyframes hanFade { from { opacity:0; } to { opacity:1; } }
+@keyframes clatter { 0%,100% { transform:translate(0,0); } 12% { transform:translate(0,-1px); } 26% { transform:translate(-1px,0.5px); } 43% { transform:translate(0.5px,1px); } 61% { transform:translate(-0.5px,-1px); } 78% { transform:translate(1px,0.5px); } }
+@keyframes buzz { 0%,100% { transform:translate(0,0); } 20% { transform:translate(-3px,1px); } 40% { transform:translate(3px,-1px); } 60% { transform:translate(-2px,-2px); } 80% { transform:translate(2px,2px); } }
+@keyframes eggFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+button { font-family:'DungGeunMo',monospace; }
+input { font-family:'DungGeunMo',monospace; font-weight:400; }
+input::placeholder { font-weight:400; }
+</style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/html2canvas-pro@1.5.8/dist/html2canvas-pro.min.js"></script>
+</helmet>
+
+
+<div style="font-family: {{ fontStack }}; max-width: 430px; margin: 0 auto; min-height: 100vh; border-left: 4px solid #000; border-right: 4px solid #000; box-sizing: border-box; padding: 10px; background-color: #CDECF8">
+
+  <!-- ========== TITLE ========== -->
+  <sc-if value="{{ isTitle }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="타이틀" style="border:4px solid #000; background:#CDECF8; padding:12px;">
+      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <span style="font-size: 14px; color: #CDECF8; white-space: nowrap; font-weight: 400; font-family: DungGeunMo">SOONIKO 25M LANE</span>
+      </div>
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:11px 12px; text-align:center;">
+        <div style="margin:0 0 14px; font-size: 20px; color: #000; font-family: DungGeunMo">- 오늘도 수영장 -</div>
+        <img src="./title-logo.png" alt="SWIMMER 101" style="display:block; width:100%; height:auto; margin:0 auto 6px; image-rendering:pixelated;">
+        
+      </div>
+      
+      <div style="position:relative; border:3px solid #000; border-top:none; height:190px; overflow:hidden;">
+        <img src="./title-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeOut 4s ease-in-out infinite;">
+        <img src="./title-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeIn 4s ease-in-out infinite;">
+      </div><div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:12px;">
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+          <span style="font-size: 12px; color: #000; width: 108px; flex-shrink: 0; font-weight: 700; white-space: nowrap">주인공 이름</span><input value="{{ name }}" onChange="{{ setName }}" placeholder="영자" style="flex:1; min-width:0; box-sizing:border-box; background:#fff; border:3px solid #000; outline:none; font-size:14px; color:#000; font-weight:400; padding:7px 8px;">
+          
+        </div>
+        <div style="margin-top: 12px; font-size: 13px; color: #000; line-height: 2; word-break: keep-all; font-weight: 700">오늘은 제일 자신 없는 {{ strokeLabel }} 하는 날.<br>퇴근부터 강습까지, 무사히 갈 수 있을까?</div>
+      </div>
+      <button onClick="{{ startGame }}" style="margin-top: 12px; width: 100%; padding: 16px 0; background: #CDECF8; border: 4px solid #000; font-size: 26px; color: #000; cursor: pointer; font-weight: 400; font-family: 'DungGeunMo',monospace" style-hover="background:#000; color:#CDECF8;">GAME START</button>
+    </div>
+  </sc-if>
+
+  <!-- ========== ENDING ========== -->
+  <sc-if value="{{ isEnding }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="엔딩" style="border:4px solid #000; background:#CDECF8; min-height:calc(100vh - 20px); box-sizing:border-box; padding:14px; display:flex; flex-direction:column;">
+      <div style="border:3px solid #000; background:#000; padding:14px 12px; text-align:center;">
+        <div style="font-family:'DungGeunMo',monospace; font-size:30px; line-height:1.1; color:#CDECF8; word-break:keep-all;">{{ endTitle }}</div>
+        <div style="font-family:'DungGeunMo',monospace; font-size:30px; line-height:1.1; color:#CDECF8; word-break:keep-all;">{{ endSub }}</div>
+      </div>
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:16px 14px; flex:1;">
+        <div style="font-size:15px; color:#000; font-weight:700; line-height:2.1; white-space:pre-wrap; word-break:keep-all;">{{ typed }}</div>
+      </div>
+      <sc-if value="{{ endDone }}" hint-placeholder-val="{{ true }}">
+        <div style="border:3px solid #000; border-top:none; background:#000; padding:10px 12px; text-align:center;">
+          <span style="font-size:12px; color:#CDECF8; word-break:keep-all;">{{ endTag }}</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ endDone }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ endRetry }}" style="margin-top:12px; width:100%; padding:16px 0; background:#CDECF8; border:4px solid #000; font-size:22px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">{{ retryLabel }}</button>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- ========== LICENSE (STAGE 6) ========== -->
+  <sc-if value="{{ isCert }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="자격증" style="border:4px solid #000; background:#CDECF8; padding:12px;">
+      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:1px;">
+        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">STAGE 06</span>
+        <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">SWIMMER CARD</span>
+        <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button>
+      </div>
+      
+      <div data-cert-card="1" style="animation:cardFlip 1.1s cubic-bezier(0.22,0.9,0.3,1) both; backface-visibility:hidden; position: relative; width: 100%; max-width: 368px; aspect-ratio: 368/251; margin: 12px auto 0; background: url('./swimmer-card-bg.png') center/100% 100% no-repeat">
+        <span style="position: absolute; left: 19%; top: 30.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ nameShown }}</span>
+        <span style="position: absolute; left: 19%; top: 42.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ swimType }}</span>
+        <span style="position: absolute; left: 19%; top: 54.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ bestStroke }}</span>
+        <span style="position: absolute; left: 5.3%; top: 83.7%; width: 65%; font-family: 'Galmuri11',monospace; font-size: clamp(8px,2.5vw,10px); line-height: 1.5; color: #1b7fa8; word-break: keep-all">{{ traitText }}</span>
+        <div style="position:absolute; left:67.4%; top:33.5%; width:27.4%; height:49.8%; box-sizing:border-box; border:2px solid #000; overflow:hidden; background:#d9d9d9;">
+          <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
+            {{ photoImg }}
+          </sc-if>
+        </div>
+      </div>
+      <div style="display:grid; gap:8px; margin-top:12px;">
+        <button onClick="{{ saveCert }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-size:22px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">{{ saveLabel }}</button>
+        <button onClick="{{ remakeCard }}" style="width:100%; padding:12px 0; background:#fff; border:4px solid #000; font-size:16px; color:#000; cursor:pointer;" style-hover="background:#000; color:#fff;">↺ 다시 만들기</button>
+        <button onClick="{{ goBonus }}" style="width:100%; padding:15px 0; background:#CDECF8; border:4px solid #000; font-size:20px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 어? 뭔가 있는데..</button>
+      </div>
+    </div>
+  </sc-if>
+
+
+  <!-- ========== CARD FORM ========== -->
+  <sc-if value="{{ isForm }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="카드입력" style="border:4px solid #000; background:#CDECF8; padding:12px;">
+      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:14px; color:#CDECF8;">SWIMMER CARD</span>
+        <span style="font-size:14px; color:#CDECF8;">{{ formStepLabel }}</span>
+      </div>
+
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:14px;">
+        <div style="font-family:'DungGeunMo',monospace; font-size:22px; color:#000; word-break:keep-all;">{{ formTitle }}</div>
+
+        <sc-if value="{{ formIsStroke }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
+            <sc-for list="{{ strokeOpts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ formIsType }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
+            <sc-for list="{{ typeOpts }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ formIsPhoto }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; gap:12px; align-items:flex-start; margin-top:12px; flex-wrap:wrap;">
+            <div style="position:relative; width:132px; height:163px; border:3px solid #000; background:#fff; overflow:hidden; flex-shrink:0; max-width:calc(50% - 6px);">
+              <img src="./photo-placeholder.png" alt="" style="position:absolute; inset:6px; width:calc(100% - 12px); height:calc(100% - 12px); object-fit:contain; image-rendering:pixelated; pointer-events:none;">
+              <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
+                {{ photoImg }}
+              </sc-if>
+            </div>
+            <div style="display:grid; gap:8px; align-content:start;">
+              <input type="file" accept="image/*" onChange="{{ pickPhoto }}" style="display:none;" ref="{{ fileRef }}">
+              <button onClick="{{ openPicker }}" style="padding:9px 12px; background:#CDECF8; border:3px solid #000; font-family:'Galmuri11',monospace; font-weight:700; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">사진 업로드</button>
+              <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid; gap:6px; border:3px solid #000; background:#fff; padding:8px;">
+                  <span style="font-family:'Galmuri11',monospace; font-size:12px; color:#000;">EDIT</span>
+                  <div style="display:flex; gap:6px;">
+                    <button onClick="{{ zoomOut }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:14px; cursor:pointer;">-</button>
+                    <button onClick="{{ zoomIn }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:14px; cursor:pointer;">+</button>
+                  </div>
+                  <div style="display:flex; gap:6px;">
+                    <button onClick="{{ moveL }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">◀</button>
+                    <button onClick="{{ moveR }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">▶</button>
+                    <button onClick="{{ moveU }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">▲</button>
+                    <button onClick="{{ moveD }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">▼</button>
+                  </div>
+                  <button onClick="{{ resetPhoto }}" style="padding:5px 8px; border:2px solid #000; background:#fff; font-family:'Galmuri11',monospace; font-size:12px; cursor:pointer;">초기화</button>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:grid; gap:8px; margin-top:12px;">
+        <sc-if value="{{ formShowNext }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ formNext }}" style="width:100%; padding:15px 0; background:#CDECF8; border:4px solid #000; font-family:'DungGeunMo',monospace; font-size:22px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 다음</button>
+        </sc-if>
+        <sc-if value="{{ formShowMake }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ makeCard }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-family:'DungGeunMo',monospace; font-size:26px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">▶ 카드 만들기</button>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ========== SAMPLE KIT ========== -->
+  <sc-if value="{{ isKit }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="샘플키트" style="border:4px solid #000; background:#CDECF8; padding:12px;">
+      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">BONUS</span>
+        <button onClick="{{ restart }}" style="background:#CDECF8; border:2px solid #CDECF8; padding:5px 8px; font-size:14px; color:#000; font-weight:700; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">↺ 게임 하러가기</button>
+      </div>
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:16px 14px; text-align:center;">
+        <div style="font-family:'DungGeunMo',monospace; font-size:28px; line-height:1.1; color:#000;">SOONIKO SAMPLE SET</div>
+        <div style="font-size:14px; color:#000; margin-top:6px;">수영 후 피부를 위한 스킨케어 3종</div>
+      </div>
+      <div style="border:3px solid #000; border-top:none; height:200px; background:#CDECF8; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:14px; color:#000;">[ PRODUCT IMAGE ]</span>
+      </div>
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:14px;">
+        <div style="font-size:14px; color:#000; font-weight:700; line-height:2.05; word-break:keep-all;">수영 후 신경 쓰이는 당김, 건조함, 열감.<br>필요한 순서대로 세안하고, 식히고, 보습하는 3단계를 담았습니다.<br><br>가볍게 챙겨 다음 수영부터 사용해보세요.<br><br>다음 수영은 새롭게 시작해볼까요?</div>
+      </div>
+      <button style="margin-top:12px; width:100%; padding:16px 0; background:#000; border:4px solid #000; font-size:26px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">🎁 선물 받기</button>
+    </div>
+  </sc-if>
+
+  <!-- ========== PLAY ========== -->
+  <sc-if value="{{ isPlay }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="게임" style="border: 4px solid #000; padding: 10px; background-color: #CDECF8">
+
+      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 8px;">
+        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">{{ stageCode }}</span>
+        <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ place }}</span>
+        <span style="display:flex; gap:1px; flex:0 0 auto; align-items:center;">
+        <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button></span>
+      </div>
+
+      <div style="border: 3px solid #000; border-top: none; height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #FFEDB8">
+        <sc-if value="{{ img_s1a }}" hint-placeholder-val="{{ true }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./----1-msgyp7w2-5x5a.gif" alt="----1" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s1b }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./11-msgvwuvv-j2oe.png" alt="11" width="721" height="631" style="max-width: 100%; height: 177px; display: block; object-fit: cover; width: 202px; aspect-ratio: 721 / 631; animation: buzz 0.28s steps(2,end) infinite"></div>
+        </sc-if>
+        <sc-if value="{{ img_s1b2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #CDECF8">
+            
+          <img src="./----2-msgxj7nw-0ike.gif" alt="----2" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s1c }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./----3-msgzhn6q-zare.gif" alt="----3" width="752" height="500" style="max-width: 100%; height: 300px; display: block; object-fit: cover; width: 384px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_t1 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./----4-msn74i1h-eeqd.png" alt="----4" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500; animation:clatter 0.9s steps(3,end) infinite;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_t1b }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--5-msn7fp4o-kabv.gif" alt="gif--5" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s2a }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
+            <img src="./locker-room-people-removed-752x500.png" alt="탈의실" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500; image-rendering: pixelated;">
+            <div onClick="{{ showEgg }}" style="position:absolute; left:50%; bottom:18%; transform:translateX(-50%); width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite;">
+              <img src="./cleanser-bench-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s2a2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--6-msn7u2h5-wh17.gif" alt="gif--6" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s2b }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--6-msn7uarr-tpfb.gif" alt="gif--6" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s2c }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--7-msn7ulv0-6di8.gif" alt="gif--7" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s3a }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--8-msn8a7bb-w23h.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s3a2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--8-msnc5x8d-y5hx.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s3b }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--8-msn8azcu-17od.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s3c }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--9-msn8b8ml-4418.gif" alt="gif--9" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4a }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
+            <img src="./gif--10-msn8bjp7-gmoe.gif" alt="gif--10" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500">
+            <div onClick="{{ showEgg2 }}" style="position:absolute; left:42%; top:52%; width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite 1.5s;">
+              <img src="./cream-tube-easter-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s4r1 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./gif-mirror-result.gif" alt="s4r1" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s4r2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./gif-mirror-result.gif" alt="s4r2" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s4r3 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./gif-mirror-result.gif" alt="s4r3" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s4r4 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./gif-mirror-result.gif" alt="s4r4" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s4r5 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--10-msn8cmdf-6u1m.gif" alt="gif--10" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4c }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--11-msn8iced-82l0.gif" alt="gif--11" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4d }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--14-msnbabbo-956t.gif" alt="gif--14" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4e }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--13-msn9dpyw-f8p2.gif" alt="gif--13" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4e2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--13-msn9e19d-9244.gif" alt="gif--13" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s4e3 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--15-msnbate6-pxlc.gif" alt="gif--15" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5a }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--17-msnbkfk6-xxal.gif" alt="gif--17" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5b }}" hint-placeholder-val="{{ false }}">
+          <div style="position:relative; width:100%; height:100%; background:#CDECF8; overflow:hidden;">
+            
+          <img src="./han-before.png" alt="한강 돌고래 등장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./han-after.png" alt="돌고래" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:hanFade 1s ease-in-out 0.6s both;"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5b2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./image-2360-mso1pb8m-3g6s.png" alt="image-2360" width="1854" height="619" style="max-width: 100%; height: 178px; display: block; object-fit: cover; width: min(453px, 100%); aspect-ratio: 1854 / 619; animation:swimPan 5s ease-out both;"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5c }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--21-mso21ymq-8780.gif" alt="gif--21" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5d }}" hint-placeholder-val="{{ false }}">
+          <div style="position:relative; width:100%; height:100%; background:#CDECF8; overflow:hidden;">
+            <img src="./s5d-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeOut 4s ease-in-out infinite;">
+            <img src="./s5d-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeIn 4s ease-in-out infinite;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_s5e }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--23-mso40wso-iacy.gif" alt="gif--23" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5e2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="max-width: 100%; height: 273px; display: block; object-fit: cover; width: 463px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5e3 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="max-width: 100%; height: 273px; display: block; object-fit: cover; width: 463px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        <sc-if value="{{ img_s5f }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            
+          <img src="./gif--30-msogxsob-5a5o.gif" alt="gif--30" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+        </sc-if>
+        
+        <sc-if value="{{ img_b2 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 피부" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_b3 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 선물" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ img_bonus1 }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
+            <img src="./mystery-gift-closed-open-2frame.gif" alt="가방 안 선물" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="border:3px solid #000; border-top:none; background:#CDECF8;">
+        <div style="border-bottom:3px solid #000; padding:6px 10px; display:flex; justify-content:space-between;">
+          <span style="font-size:14px; color:#000; font-weight:700; white-space:nowrap;">{{ speaker }}</span>
+          <span style="font-size:14px; color:#000;">{{ counter }}</span>
+        </div>
+        <div onClick="{{ tap }}" style="padding:12px 12px 8px; min-height:120px; cursor:pointer;">
+          <div style="font-size:15px; color:#000; font-weight:700; line-height:2.05; white-space:pre-wrap; word-break:keep-all;">{{ typed }}</div>
+        </div>
+        <sc-if value="{{ showNext }}" hint-placeholder-val="{{ true }}">
+          <div style="border-top:3px solid #000; display:flex; align-items:stretch;">
+            <sc-if value="{{ hasHistory }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ goBack }}" style="padding:14px 12px; font-size:14px; color:#000; font-weight:700; cursor:pointer; white-space:nowrap; border-right:3px solid #000;" style-hover="background:#000; color:#CDECF8;">◀ 이전</div>
+            </sc-if>
+            <div onClick="{{ goNext }}" style="flex:1; padding:14px 12px; text-align:right; font-size:14px; color:#000; font-weight:700; cursor:pointer; word-break:keep-all;" style-hover="background:#000; color:#CDECF8;">{{ nextLabel }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isAuto }}" hint-placeholder-val="{{ false }}">
+          <div style="border-top:3px solid #000; padding:14px 12px; text-align:right; font-size:14px; color:#000; font-weight:700; animation:blink 1s infinite;">. . .</div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{ isBonus1 }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:8px; text-align:center;">
+          <div style="border:2px solid #000; padding:8px; margin:0 4px; background:#fff; font-family:'DungGeunMo',monospace; font-size:12px; line-height:1.8;">
+            EP.02 — COMING SOON<br>
+            <span style="font-size:10px; color:#666;">{{ nameShown }}의 이야기는 아직 끝나지 않았다.</span><br>
+            <span style="display:inline-flex; align-items:center; gap:3px; background:#FEE500; color:#000; padding:2px 8px; font-size:10px; border-radius:2px; margin-top:4px; cursor:pointer;">💬 가장 먼저 알림 받기</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showChoices }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:10px; border:3px solid #000; background:#000; padding:6px 10px;">
+          <span style="font-size:14px; color:#CDECF8;">WHAT WILL YOU DO?</span>
+        </div>
+        <div style="border:3px solid #000; border-top:none; background:#CDECF8;">
+          <sc-for list="{{ choices }}" as="c" hint-placeholder-count="2">
+            <div data-choice-item="1" onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" style="{{ c.style }}">
+              <span style="width:16px; flex-shrink:0;">{{ c.cursor }}</span>
+              <span style="width:18px; flex-shrink:0;">{{ c.key }}</span>
+              <span style="flex:1; word-break:keep-all;">{{ c.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:900},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;title&quot;,&quot;form&quot;,&quot;cert&quot;,&quot;kit&quot;],&quot;default&quot;:&quot;title&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;편집&quot;},&quot;pixelFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;DungGeunMo&quot;,&quot;Galmuri7&quot;,&quot;Galmuri9&quot;,&quot;Galmuri11&quot;,&quot;Galmuri14&quot;,&quot;GalmuriMono11&quot;,&quot;Pretendard&quot;,&quot;Gothic A1&quot;,&quot;Noto Sans KR&quot;,&quot;IBM Plex Sans KR&quot;,&quot;Do Hyeon&quot;,&quot;Jua&quot;,&quot;Black Han Sans&quot;,&quot;Gowun Dodum&quot;,&quot;Nanum Pen Script&quot;],&quot;default&quot;:&quot;DungGeunMo&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;타이포&quot;},&quot;bgmVolume&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;default&quot;:0.28,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;사운드&quot;}}">
+class Component extends DCLogic {
+  state = { screen: 'title', photoSrc: '', photoZoom: 1, photoX: 0, photoY: 0, hist: [], formStep: 0, muted: false, bestStroke: '자유형', swimType: '새벽 수영러', trait: '', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, name: '', stroke: '', pick: '' };
+  N = {
+    s1a: { st: 'STAGE 01', pl: '17:55 / 사무실', sp: '{{name}}', next: 's1b',
+      text: '퇴근 5분 전.\n모니터 구석의 시계만 계속 보게 된다.\n\n오늘은 {{stroke}} 연습하는 날이네..\n왜 내 팔다리는 따로 노는걸까.\n오늘은 제발 같이 움직여주길.' },
+    s1b: { st: 'STAGE 01', pl: '17:56 / 사무실', sp: '상황', next: 's1b2',
+      text: '부르르-' },
+    s1b2: { st: 'STAGE 01', pl: '17:56 / 사무실', sp: '{{name}}', ch: [{ k: 'A', label: '미안 오늘 수영 강습이 있어서!', to: 's1c' }, { k: 'B', label: '콜! 마라탕 먹고 맥주도 GO?', to: 'e1' }],
+      text: '수정 💬 {{name}}! 나 너 회사 근처인데\n        퇴근하고 마라탕 고? 🍜\n\n......하필 마라탕.\n수영 한 번 빠진다고 뭐 어떻게 되나?' },
+    s1c: { st: 'STAGE 01', pl: '17:57 / 사무실', sp: '{{name}}', next: 't1',
+      text: '{{name}} 💬 미안ㅠ 나 오늘 강습 가야 해서!\n        다음에 꼭 먹자 🙏\n수정 💬 ㅇㅋㅇㅋ 다음엔 꼭!! 잘 다녀와~\n\n그래. 오늘 {{stroke}} 하는 날이잖아.\n마라탕은 다음에.' },
+    t1: { st: 'TRANSIT', pl: '퇴근길 / 18:20', sp: '상황', next: 't1b', img: true,
+      text: '지하철 문이 닫힌다.\n무릎 위엔 빵빵하게 채운 수영 가방.' },
+    t1b: { st: 'TRANSIT', pl: '퇴근길 / 18:20', sp: '{{name}}', next: 's2a', nextLabel: 'NEXT →',
+      text: '수영은 좋은데 가방이 너무 무거워..\n샴푸에 로션까지 챙기다 보면 늘 이만큼이다.\n\n언젠가 좀 가볍게 다닐 수 있으려나.' },
+    s2a: { st: 'STAGE 02', pl: '수영장 탈의실', sp: '상황', next: 's2a2',
+      text: '문을 열자 익숙한 수영장 냄새가 기분 좋다.\n...어디서 좋은 냄새도 나는 것 같고.' },
+    s2a2: { st: 'STAGE 02', pl: '수영장 탈의실', sp: '상황', next: 's2b',
+      text: '샤워장으로 가는데\n처음 보는 회원이 눈에 들어온다.\n\n수영복에 수모까지 썼는데 화장이 그대로다..\n두리번거리는 걸 보니 오늘 처음 온 것 같다.' },
+    s2b: { st: 'STAGE 02', pl: '수영장 샤워장', sp: '{{name}}', ch: [{ k: 'A', label: '화장 지우고 들어가셔야 해요!', to: 's2c' }, { k: 'B', label: '그냥 지나간다', to: 'e2' }],
+      text: '어… 모르시는 것 같은데.\n말해드려야 하나? 괜히 오지랖인가?' },
+    s2c: { st: 'STAGE 02', pl: '수영장 샤워장', sp: '상황', next: 's3a',
+      text: '{{name}} 💬 화장 지우고 들어가셔야 해요!\n신입 회원 💬 아 정말요? 오늘 처음이라 몰랐네요..\n          감사합니다!\n\n인사를 하고는 얼굴을 씻으러 갔다.\n\n처음 오셨구나. 말하길 잘했다!' },
+    s3a: { st: 'STAGE 03', pl: '강습 시작 / 3레인', sp: '상황', next: 's3a2',
+      text: '드디어 강습 시작.' },
+    s3a2: { st: 'STAGE 03', pl: '강습 시작 / 3레인', sp: '{{name}}', next: 's3b',
+      text: '팔 당기고… 발 접고… 차고…\n왜 나는 할 때마다 처음 하는 것 같지?' },
+    s3b: { st: 'STAGE 03', pl: '강습 중 / 3레인', sp: '{{name}}', ch: [{ k: 'A', label: '가운데로 나가서 추월한다', to: 'e3' }, { k: 'B', label: '잠영 + 돌핀킥으로 추월한다', to: 'e4' }, { k: 'C', label: '앞사람에 맞춰 페이스를 조절한다', to: 's3c' }],
+      text: '그런데 어느 순간\n앞사람의 발이 점점 가까워진다.\n\n어? 나도 느린데… 저분은 더 느리네..' },
+    s3c: { st: 'STAGE 03', pl: '3레인 벽', sp: '상황', next: 's4a',
+      text: '벽에 도착한다. 앞사람이 물안경을 살짝 올린다.\n\n{{name}} 💬 저… 혹시 제가 먼저 가도 될까요?\n앞사람 💬 아! 그럼요 먼저 가세요!\n\n자리가 자연스럽게 바뀐다.\n이렇게 간단한 걸! 다시 출발!' },
+    s4a: { st: 'STAGE 04', pl: '강습 종료 / 3레인', sp: '{{name}}', ch: [{ k: 'A', label: '오늘따라 왜 이리 빨갛지? 열심히 했나?', to: 's4r1' }, { k: 'B', label: '오늘 피부가 너무 건조하잖아', to: 's4r2' }, { k: 'C', label: '피부가 간질간질해, 뭐지?', to: 's4r3' }, { k: 'D', label: '대박 오늘은 진짜 배고프다', to: 's4r4' }, { k: 'E', label: '각성됐어! 집 가서 뭐든 할 수 있을 것 같아', to: 's4r5' }],
+      text: '강습 종료!\n\n마지막 한 바퀴는 좀 나았던 것 같기도?\n여전히 팔다리는 따로 놀지만.\n\n물 밖으로 나와 샤워장 거울 앞에 서는데- 어라?' },
+    s4r1: { st: 'STAGE 04', pl: '샤워장 / 거울 앞', sp: '{{name}}', next: 's4c', pick: '물에서 나오면 얼굴이 빨개진다',
+      text: '거울 속 볼이 발갛다.\n......열심히 하긴 했지.' },
+    s4r2: { st: 'STAGE 04', pl: '샤워장 / 거울 앞', sp: '{{name}}', next: 's4c', pick: '물에서 나오면 얼굴이 땅긴다',
+      text: '물속에 두 시간이나 있었는데\n얼굴만 혼자 사막이야.' },
+    s4r3: { st: 'STAGE 04', pl: '샤워장 / 거울 앞', sp: '{{name}}', next: 's4c', pick: '물에서 나오면 얼굴이 간질간질하다',
+      text: '긁으면 안 되는 거 아는데.\n손이 자꾸 올라간다.' },
+    s4r4: { st: 'STAGE 04', pl: '샤워장 / 거울 앞', sp: '{{name}}', next: 's4c', pick: '물에서 나오면 얼굴이 땅긴다',
+      text: '꼬르륵-\n아까 마라탕 참은 게 지금 오네..' },
+    s4r5: { st: 'STAGE 04', pl: '샤워장 / 거울 앞', sp: '{{name}}', next: 's4c', pick: '물에서 나오면 얼굴이 땅긴다',
+      text: '이상하게 몸이 가볍다.\n역시 수영이 짱이라니까!' },
+    s4c: { st: 'STAGE 04', pl: '탈의실', sp: '{{name}}', ch: [{ k: 'A', label: '입고 온 티셔츠로 닦으세요', to: 'e5' }, { k: 'B', label: '휴지로 닦으세요', to: 'e6' }, { k: 'C', label: '마를 때까지 기다리세요', to: 'e7' }, { k: 'D', label: '제가 쓰긴 했는데… 이거 쓰실래요?', to: 's4d' }],
+      text: '샤워를 마치고 수건으로 몸을 닦는다.\n얼굴은 씻어도 씻은 것 같지가 않네.\n\n그때 옆에서 부스럭거리는 소리.\n가방을 뒤집을 기세로 뭔가를 찾고 있다.\n\n저 표정… 수건 안 가져왔구나.' },
+    s4d: { st: 'STAGE 04', pl: '탈의실 → 파우더룸', sp: '상황', ch: [{ k: 'A', label: '그냥 참고 집에 가자', to: 's4e' }, { k: 'B', label: '사람들을 밀고 비집고 들어가자', to: 'e8' }, { k: 'C', label: '계속 기다려보자', to: 's4e' }],
+      text: '수건을 내민다.\n회원 💬 진짜요? 감사합니다! 정말 살았어요!!\n\n옷을 갈아입고 파우더룸으로 나오니\n거울 앞은 복작복작.\n얼굴은 땅기는데 가방 열 자리도 없다.' },
+    s4e: { st: 'STAGE 04', pl: '파우더룸', sp: '회원', next: 's4e2',
+      text: '회원 💬 저기, 혹시 이거 쓰실래요?' },
+    s4e2: { st: 'STAGE 04', pl: '파우더룸', sp: '상황', next: 's4e3',
+      text: '아까 그 사람이다.\n샤워 가방에 걸려있던 무언가를 툭 뺀다.\n\n미스트였네.' },
+    s4e3: { st: 'STAGE 04', pl: '파우더룸', sp: '상황', next: 's5a',
+      text: '치익-\n\n오, 시원하다.\n얼굴 당기는 것도 좀 덜한 것 같고.\n\n회원 💬 아까 수건 받았는걸요~ 또 봬요!' },
+    s5a: { st: 'STAGE 05', pl: '한강 / 밤', sp: '{{name}}', next: 's5b',
+      text: '수영장을 나서 따릉이를 타고 집으로 향한다.\n젖은 머리로 밤바람을 맞으니 기분이 묘하게 좋다.\n\n{{stroke}}, 여전히 어렵지만\n그래도 지난번보다 나아진 것 같아!' },
+    s5b: { st: 'STAGE 05', pl: '한강 / 밤', sp: '상황', next: 's5b2',
+      text: '그때- 찰랑.\n한강에서 돌고래 한 마리가 머리를 내민다.' },
+    s5b2: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 ???', next: 's5c',
+      text: '🐬 {{name}}님.\n{{name}} 💬 ……네?\n🐬 오늘 하루 계속 지켜보고 있었어요.\n{{name}} 💬 ......네?' },
+    s5c: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', next: 's5d',
+      text: '마라탕은 다음으로 미뤘고,\n{{stroke}}, 여전히 어려웠고.\n\n처음 온 회원한테 말도 걸고,\n수건도 하나 빌려줬죠.' },
+    s5d: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', next: 's5e',
+      text: '그리고 무엇보다-\n오늘도 수영장에 왔잖아요.\n수영을 좋아하니까요.' },
+    s5e: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', next: 's5e2',
+      text: '짜잔-! 스위머 카드를 발급해드릴게요!\n수영을 좋아하는 마음이 있다면 누구나 발급해드려요. 좋아하는 것만으로도 충분한 자격이 된답니다!\n' },
+    s5e2: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', next: 's5e3',
+      text: '그리고 당신은-\n101번째 수영인이랍니다.' },
+    s5e3: { st: 'STAGE 05', pl: '한강 / 밤', sp: '{{name}}', next: 's5f',
+      text: '{{name}} ......101번째요?\n     왜 하필 101번째예요?' },
+    s5f: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', nextLabel: '▶ 자격증 받기', cert: true,
+      text: '후후. 그것부터 물어보실 줄 알았어요.\n\n{{name}}님보다 먼저\n100명의 수영인을 만났거든요.\n\n그러니까 {{name}}님은 101번째.\n\n그 100명이 누구인지는\n조금 있다 알려드릴게요.' },
+
+    bonus1: { st: 'BONUS STAGE', pl: '집', sp: '상황', nextLabel: '🎁 열어볼까', url: 'https://sooniko.co.kr',
+      text: '집에 돌아왔는데\n뭔가 놓여있다.\n\n내 건 아닌데..\n누가 놓둔 거지?' },
+    e1: { end: 'BAD END 01 - 마라탕의 승리', tag: '마라탕 +1 / 평영 경험치 +0', backTo: 's1b2', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '보글보글 끓는 빨간 국물.\n둘은 말없이 마라탕에 집중한다.\n\n정신을 차리고 시계를 보니\n강습은 이미 끝났을 시간이다.\n\n{{name}}\n……오늘 {{stroke}} 갈걸.\n맛있긴한데 왜 조금 찝찝하지..' },
+    e2: { end: 'BAD END 02 - 그때 말할걸', tag: '한마디를 아낀 대가', backTo: 's2b', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '강습을 기다리는데 아까 그 회원이 보인다.\n\n강사 💬 회원님! 화장 지우고 들어오셔야 해요.\n신입 회원 💬 아… 네! 죄송합니다..\n\n{{name}}\n아… 아까 말해줄 걸.. 마음이 좋지 않네..' },
+    e3: { end: 'BAD END 03 - 성급한 추월', tag: '추월은 빨랐지만 민망함은 더 빨랐다', backTo: 's3b', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '레인 가운데로 슬쩍 빠져나간 순간- 철썩!\n앞사람과 손이 닿을 뻔한다.\n\n앞사람 💬 어머!\n{{name}} 죄… 죄송합니다.\n\n물속에서 애매하게 눈이 마주친다.' },
+    e4: { end: 'BAD END 04 - 인간 잠수함', tag: '당신의 별명은 잠수함이 되었습니다', backTo: 's3b', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '물속으로 깊게 들어간다. 슝--\n돌핀킥으로 앞사람을 지나친 뒤\n수면 위로 솟아오른다. 부하!\n\n놀란 앞사람이 물을 먹는다.\n\n{{name}}\n……너무 성급했나..' },
+    e5: { end: 'BAD END 05 - 티셔츠의 최후', tag: '도움은 주고 방법이 문제였을까?', backTo: 's4c', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '{{name}}의 조언을 들은 회원이\n잠깐 아무 말 없이 바라본다.\n\n회원 💬 아…제가 알아서 할게요…\n\n젖은 채로 자리를 떠난다.\n\n{{name}}\n음. 뭔가 다른 답이 있었던 것 같은데.' },
+    e6: { end: 'BAD END 06 - 휴지의 배신', tag: '도움은 주고 방법이 문제였을까?', backTo: 's4c', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '{{name}}의 조언을 들은 회원이\n잠깐 아무 말 없이 바라본다.\n\n회원 💬 아…제가 알아서 할게요…\n\n젖은 채로 자리를 떠난다.\n\n{{name}}\n음. 뭔가 다른 답이 있었던 것 같은데.' },
+    e7: { end: 'BAD END 07 - 자연 건조', tag: '도움은 주고 방법이 문제였을까?', backTo: 's4c', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '{{name}}의 조언을 들은 회원이\n잠깐 아무 말 없이 바라본다.\n\n회원 💬 아…제가 알아서 할게요…\n\n젖은 채로 자리를 떠난다.\n\n{{name}}\n음. 뭔가 다른 답이 있었던 것 같은데.' },
+    e8: { end: 'BAD END 08 - 파우더룸 대참사', tag: '거울 앞은 전쟁터였다', backTo: 's4d', retryLabel: '▶ 이전 선택지로 돌아가기',
+      text: '사람들 사이를 비집고 들어간다.\n\n어머, 왜 이러세요?\n저기요, 순서 좀...\n\n드라이기 줄이 엉키고\n누군가의 파우치가 바닥에 떨어진다.\n\n{{name}}\n......죄송합니다.' }
+  };
+  ATTACK = { '자유형': '무한 자유형', '배영': '천장 질주', '평영': '개구리 킥', '접영': '돌핀 웨이브' };
+  TRAITS = ['수경에 김이 서리지 않는다.', '수경 자국이 절대 남지 않는다.', '아무리 수영해도 숨이 차지 않는다.', '배영 시 벽까지 남은 거리를 자동으로 감지한다.', '자유수영 시 한 레인을 혼자 쓰게 된다.', '뒤에서 발을 건드리는 사람이 사라진다.', '필요할 때마다 마른 수건이 소환된다.', '귀에 물이 절대 들어오지 않는다.', '항상 빈 드라이어가 하나 남아 있게 된다.', '내가 가는 시간에는 수영장이 한산해진다.', '수영 후 폭식해도 칼로리가 0이 된다.', '휴관일에도 수영장에 입장할 수 있게 된다.', '몇 바퀴째인지 항상 정확히 기억하게 된다.', '벽을 차면 평소보다 두 배 멀리 나가게 된다.', '입수하자마자 몸이 완전히 풀리게 된다.', '발과 종아리에 절대 쥐가 나지 않는다.', '수영 후에도 피부가 절대 당기지 않는다.', '수영 후에도 머릿결이 그대로 유지된다.', '젖은 수영복과 수건이 자동으로 건조된다.', '항상 원하는 위치의 사물함이 비어 있게 된다.', '한 번 들은 자세 교정을 바로 습득하게 된다.', '반대편 수영인과 손이 절대 부딪히지 않는다.', '옆 레인에서 물결의 영향을 받지 않는다.', '내가 가는 날에는 수영장 물이 맑아진다.', '수영이 끝난 뒤 몰려오는 식욕이 사라진다.'];
+  fileRef = React.createRef();
+  openCert() {
+    setTimeout(() => this.sfxTada(), 120); if(window.gtag)gtag('event','game_complete');if(window.fbq)fbq('track','Lead',{content_name:'game_complete'});
+    const t = this.state.trait || this.TRAITS[Math.floor(Math.random() * this.TRAITS.length)];
+    this.setState({ screen: 'cert', trait: t });
+  }
+  optStyle(on) {
+    return 'padding:7px 10px; font-family:\'DungGeunMo\',monospace; font-size:15px; border:3px solid #000; cursor:pointer; white-space:nowrap; ' + (on ? 'background:#000; color:#CDECF8;' : 'background:#fff; color:#000;');
+  }
+  bgm() {
+    if (!window.__swimBgm) {
+      const a = new Audio('./bgm-8bit-love.mp3');
+      a.loop = true;
+      window.__swimBgm = a;
+    }
+    window.__swimBgm.volume = this.props.bgmVolume != null ? this.props.bgmVolume : 0.28;
+    this._bgm = window.__swimBgm;
+    return this._bgm;
+  }
+  playBgm() {
+    if (this._muted) return;
+    const a = this.bgm();
+    if (!a.paused) return;
+    const p = a.play(); if (p && p.catch) p.catch(() => {});
+  }
+  armBgm() {
+    this._me = this._me || Math.random().toString(36).slice(2);
+    if (window.__swimBgmArmed && window.__swimBgmArmed !== this._me) { this.maybePlay(); return; }
+    window.__swimBgmArmed = this._me;
+    document.addEventListener('pointerdown', () => this.maybePlay(), true);
+    document.addEventListener('visibilitychange', () => this.maybePlay());
+    clearInterval(window.__swimBgmTick);
+    window.__swimBgmTick = setInterval(() => this.maybePlay(), 700);
+    this.maybePlay();
+  }
+  isOwner() {
+    const K = 'swim101_bgm_owner';
+    if (!this._me) return false;
+    const now = Date.now();
+    if (this._owns) {
+      try { localStorage.setItem(K, JSON.stringify({ id: this._me, ts: now })); } catch (e) {}
+      return true;
+    }
+    let rec = null;
+    try { rec = JSON.parse(localStorage.getItem(K) || 'null'); } catch (e) {}
+    if (!rec || !rec.id || rec.id === this._me || now - rec.ts > 2500) {
+      this._owns = true;
+      try { localStorage.setItem(K, JSON.stringify({ id: this._me, ts: now })); } catch (e) {}
+      return true;
+    }
+    return false;
+  }
+  maybePlay() {
+    const a = this.bgm();
+    if (document.hidden || !this.isOwner()) { if (!a.paused) a.pause(); return; }
+    this.playBgm();
+  }
+  ac() {
+    if (this._muted) return null;
+    if (!this._ac) { const A = window.AudioContext || window.webkitAudioContext; if (!A) return null; this._ac = new A(); }
+    if (this._ac.state === 'suspended') this._ac.resume();
+    return this._ac;
+  }
+  beep(freq, dur, type, vol) {
+    const ac = this.ac(); if (!ac) return;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type || 'square';
+    o.frequency.setValueAtTime(freq, ac.currentTime);
+    g.gain.setValueAtTime(vol == null ? 0.05 : vol, ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + dur);
+    o.connect(g); g.connect(ac.destination);
+    o.start(); o.stop(ac.currentTime + dur);
+  }
+  sfxBuzz() {
+    const ac = this.ac(); if (!ac) return;
+    const o = ac.createOscillator(), g = ac.createGain(), lfo = ac.createOscillator(), lg = ac.createGain();
+    o.type = 'square'; o.frequency.setValueAtTime(85, ac.currentTime);
+    lfo.type = 'square'; lfo.frequency.setValueAtTime(26, ac.currentTime);
+    lg.gain.setValueAtTime(0.05, ac.currentTime);
+    lfo.connect(lg); lg.connect(g.gain);
+    g.gain.setValueAtTime(0.05, ac.currentTime);
+    g.gain.setValueAtTime(0.05, ac.currentTime + 0.5);
+    g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + 0.62);
+    o.connect(g); g.connect(ac.destination);
+    o.start(); lfo.start(); o.stop(ac.currentTime + 0.62); lfo.stop(ac.currentTime + 0.62);
+  }
+  async saveCert() {
+    const el = document.querySelector('[data-cert-card]'), h2c = window.html2canvas;
+    if (!el || !h2c) return;
+    this.setState({ saving: true });
+    const prevAnim = el.style.animation, prevTf = el.style.transform;
+    el.style.animation = 'none'; el.style.transform = 'none';
+    await new Promise(r => setTimeout(r, 60));
+    await new Promise(r => setTimeout(r, 120));
+    try {
+      const shot = await h2c(el, { backgroundColor: null, scale: Math.max(6, Math.ceil(840 / el.offsetWidth) + 2), useCORS: true, logging: false });
+      const W = 1080, H = 1920, c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctx = c.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.fillStyle = '#CDECF8'; ctx.fillRect(0, 0, W, H);
+      const frame = await new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = './share-frame.png'; });
+      if (frame) ctx.drawImage(frame, 0, 0, W, H);
+      const BX = 118, BY = 662, BW = 844, BH = 480;
+      const k = Math.min(BW / shot.width, BH / shot.height);
+      const w = shot.width * k, h = shot.height * k;
+      ctx.drawImage(shot, BX + (BW - w) / 2, BY + (BH - h) / 2, w, h);
+      const fileName = 'SWIMMER101_' + (this.state.name || '영자') + '_자격증.png';
+      // Mobile: use Web Share API for gallery save, fallback to download
+      if (navigator.share && navigator.canShare) {
+        try {
+          const blob = await new Promise(res => c.toBlob(res, 'image/png'));
+          const file = new File([blob], fileName, { type: 'image/png' });
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file] });
+          } else { throw new Error('cannot share'); }
+        } catch (e2) {
+          const a = document.createElement('a');
+          a.download = fileName;
+          a.href = c.toDataURL('image/png');
+          a.click();
+        }
+      } else {
+        const a = document.createElement('a');
+        a.download = fileName;
+        a.href = c.toDataURL('image/png');
+        a.click();
+      }
+    } catch (e) { console.warn('cert save failed', e); }
+    el.style.animation = prevAnim; el.style.transform = prevTf;
+    this.setState({ saving: false });
+  }
+  sfxTrain() {
+    const ac = this.ac(); if (!ac) return;
+    const dur = 2.48, len = Math.floor(ac.sampleRate * dur);
+    const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) {
+      const t = i / ac.sampleRate;
+      const clack = (t % 0.62 < 0.05 || (t + 0.14) % 0.62 < 0.04) ? 2.4 : 1;
+      d[i] = (Math.random() * 2 - 1) * 0.55 * clack;
+    }
+    const src = ac.createBufferSource(); src.buffer = buf; src.loop = true;
+    const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 320; lp.Q.value = 0.7;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.85, ac.currentTime + 0.25);
+    src.connect(lp); lp.connect(g); g.connect(ac.destination);
+    src.start();
+    this.stopTrain();
+    this._train = { src: src, g: g };
+  }
+  stopTrain() {
+    if (!this._train) return;
+    const tr = this._train; this._train = null;
+    try { tr.g.disconnect(); tr.src.stop(); } catch (e) {}
+  }
+  noise(dur, freq, type, vol, Q) {
+    const ac = this.ac(); if (!ac) return null;
+    const len = Math.floor(ac.sampleRate * dur);
+    const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    const src = ac.createBufferSource(); src.buffer = buf;
+    const bq = ac.createBiquadFilter(); bq.type = type || 'bandpass'; bq.frequency.value = freq; bq.Q.value = Q == null ? 1 : Q;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(vol, ac.currentTime + dur * 0.2);
+    g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + dur);
+    src.connect(bq); bq.connect(g); g.connect(ac.destination);
+    src.start();
+    return g;
+  }
+  sfxDoor() {
+    const ac = this.ac(); if (!ac) return;
+    this.noise(0.75, 700, 'bandpass', 0.1, 0.8);
+    const t = ac.currentTime + 0.72;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = 'triangle'; o.frequency.setValueAtTime(180, t); o.frequency.exponentialRampToValueAtTime(90, t + 0.18);
+    g.gain.setValueAtTime(0.16, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.2);
+    o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.22);
+  }
+  sfxSplash() {
+    const ac = this.ac(); if (!ac) return;
+    this.noise(0.55, 950, 'lowpass', 0.42, 0.6);
+    const t = ac.currentTime;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(320, t); o.frequency.exponentialRampToValueAtTime(70, t + 0.4);
+    g.gain.setValueAtTime(0.2, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
+    o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.5);
+  }
+  sfxSwim() {
+    for (let k = 0; k < 4; k++) setTimeout(() => this.noise(0.34, 520 + (k % 2) * 260, 'lowpass', 0.24, 0.5), k * 420);
+  }
+  sfxAlert() {
+    const ac = this.ac(); if (!ac) return;
+    [[988, 0], [988, 0.16]].forEach(([hz, at]) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'square'; o.frequency.setValueAtTime(hz, t);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.1, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.13);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.15);
+    });
+  }
+  sfxLook() {
+    const ac = this.ac(); if (!ac) return;
+    [[520, 780, 0], [780, 520, 0.26]].forEach(([a, b, at]) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(a, t); o.frequency.exponentialRampToValueAtTime(b, t + 0.2);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.07, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.24);
+    });
+  }
+  sfxMist() { this.noise(0.62, 5200, 'highpass', 0.16, 0.4); }
+  sfxBell() {
+    const ac = this.ac(); if (!ac) return;
+    [0, 0.22].forEach(at => {
+      const t = ac.currentTime + at;
+      [2637, 3520].forEach((hz, k) => {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sine'; o.frequency.setValueAtTime(hz, t);
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(k ? 0.05 : 0.09, t + 0.008); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+        o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.52);
+      });
+    });
+  }
+  sfxTitle() {
+    const ac = this.ac(); if (!ac) return;
+    [[523.3, 0, 0.12], [659.3, 0.1, 0.12], [784, 0.2, 0.12], [1046.5, 0.32, 0.5]].forEach(([hz, at, len]) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'square'; o.frequency.setValueAtTime(hz, t);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.075, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + len + 0.02);
+    });
+  }
+  sfxTada() {
+    const ac = this.ac(); if (!ac) return;
+    [[523.3, 0, 0.1], [659.3, 0.09, 0.1], [784, 0.18, 0.1], [1046.5, 0.27, 0.14], [1318.5, 0.4, 0.7]].forEach(([hz, at, len]) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'square'; o.frequency.setValueAtTime(hz, t);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.08, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + len + 0.02);
+    });
+  }
+  sfxDolphinTalk() {
+    const ac = this.ac(); if (!ac) return;
+    const seq = [880, 1180, 990, 1320, 1050, 760];
+    seq.forEach((hz, i) => {
+      const t = ac.currentTime + i * 0.14;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(hz, t);
+      o.frequency.exponentialRampToValueAtTime(hz * (i % 2 ? 0.8 : 1.25), t + 0.1);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.055, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + 0.14);
+    });
+  }
+  sfxDolphin() {
+    const ac = this.ac(); if (!ac) return;
+    const t0 = ac.currentTime + 1.2;
+    for (let k = 0; k < 3; k++) {
+      const t = t0 + k * 0.13;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(1400 + k * 180, t);
+      o.frequency.exponentialRampToValueAtTime(2900 + k * 200, t + 0.07);
+      o.frequency.exponentialRampToValueAtTime(1700 + k * 150, t + 0.12);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.08, t + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + 0.16);
+    }
+  }
+  sfxGameOver() {
+    const ac = this.ac(); if (!ac) return;
+    // descending 8-bit fail motif
+    [[523.3, 0], [415.3, 0.15], [349.2, 0.3], [174.6, 0.48]].forEach(([hz, at], i) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'square';
+      o.frequency.setValueAtTime(hz, t);
+      if (i === 3) o.frequency.exponentialRampToValueAtTime(hz * 0.6, t + 0.6);
+      const len = i === 3 ? 0.72 : 0.16;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.11, t + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + len + 0.02);
+    });
+    // low thud
+    const t2 = ac.currentTime + 0.48;
+    const o2 = ac.createOscillator(), g2 = ac.createGain();
+    o2.type = 'triangle';
+    o2.frequency.setValueAtTime(110, t2);
+    o2.frequency.exponentialRampToValueAtTime(55, t2 + 0.7);
+    g2.gain.setValueAtTime(0.14, t2);
+    g2.gain.exponentialRampToValueAtTime(0.0001, t2 + 0.8);
+    o2.connect(g2); g2.connect(ac.destination);
+    o2.start(t2); o2.stop(t2 + 0.82);
+  }
+  sfxSad() {
+    const ac = this.ac(); if (!ac) return;
+    [[392, 0], [349.2, 0.17], [293.7, 0.34], [246.9, 0.51]].forEach(([hz, at]) => {
+      const t = ac.currentTime + at;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(hz, t);
+      o.frequency.exponentialRampToValueAtTime(hz * 0.94, t + 0.22);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.12, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + 0.32);
+    });
+  }
+  sfxSparkle() {
+    const ac = this.ac(); if (!ac) return;
+    [1568, 2093, 2637, 3136].forEach((hz, i) => {
+      const t = ac.currentTime + i * 0.075;
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(hz, t);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.09, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.34);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + 0.36);
+    });
+  }
+  sfxType() {
+    const ac = this.ac(); if (!ac) return;
+    const n = 0.018, len = Math.floor(ac.sampleRate * n);
+    const buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+    const src = ac.createBufferSource(); src.buffer = buf;
+    const bp = ac.createBiquadFilter(); bp.type = 'bandpass';
+    bp.frequency.value = 1800 + Math.random() * 700; bp.Q.value = 1.2;
+    const g = ac.createGain(); g.gain.value = 0.16;
+    src.connect(bp); bp.connect(g); g.connect(ac.destination);
+    src.start();
+  }
+  sfxClick() { this.beep(660, 0.06, 'square', 0.07); setTimeout(() => this.beep(990, 0.07, 'square', 0.06), 55); }
+  sub(t, s) { return String(t || '').replace(/\{\{pick\}\}/g, s.pick || '').replace(/\{\{name\}\}/g, s.name || '영자').replace(/\{\{stroke\}\}/g, s.stroke || '평영'); }
+  body(n, s) { return this.sub(n.text || '', s); }
+  go(id) { const t = this.N[id]; if (this.state.screen !== 'play') this.setState({ screen: 'play' }); const prev = this.state.id; if (prev && prev !== id) this._hist = (this._hist || []).concat(prev); if (id === 's1b') setTimeout(() => this.sfxBuzz(), 60);
+    if (id === 's1c') setTimeout(() => this.sfxSparkle(), 60);
+    if (id === 't1') { if (!this._train) setTimeout(() => this.sfxTrain(), 60); } else this.stopTrain();
+    if (id === 't1b') setTimeout(() => this.sfxSad(), 80);
+    if (t && t.end) { setTimeout(() => this.sfxGameOver(), 120); if(window.gtag)gtag('event','bad_ending',{ending:id}); }
+    if (id === 's5b') this.sfxDolphin();
+    const SFX = { s2a: 'sfxDoor', s2b: 'sfxSparkle', s3a: 'sfxSplash', s3a2: 'sfxSwim', s3b: 'sfxAlert', s3c: 'sfxSparkle', s4c: 'sfxLook', s4d: 'sfxSparkle', s4e: 'sfxSparkle', s4e3: 'sfxMist', s5a: 'sfxBell', s5b2: 'sfxDolphinTalk', s5c: 'sfxDolphinTalk' };
+    if (SFX[id]) setTimeout(() => this[SFX[id]](), 80); this.setState({ id, imgId: (t && t.auto && !t.img) ? this.state.imgId : id, shown: 0, cursor: 0, pick: t.pick !== undefined ? t.pick : this.state.pick, screen: t.end ? 'ending' : 'play' }); }
+  renderVals() {
+    const s = this.state, n = this.N[s.id] || this.N.s1a;
+    const body = this.body(n, s);
+    const typing = s.shown < body.length;
+    const imgFlags = {};
+    Object.keys(this.N).forEach(k => { imgFlags['img_' + k] = (k === (s.imgId || s.id)); });
+    const rowBase = 'display:flex; gap:6px; align-items:flex-start; padding:14px 10px; font-size:14px; cursor:pointer; line-height:1.6;';
+    return {
+      ...imgFlags,
+      fontStack: (this.props.pixelFont || 'DungGeunMo') + ',monospace',
+      fontStack: (this.props.pixelFont || 'DungGeunMo') + ',monospace',
+      cardBg: this.props.cardBg || '#ffffff',
+      cardAccent: this.props.cardAccent || '#2aa8e0',
+      pillColor: this.props.pillColor || '#CDECF8',
+      showBarcode: this.props.showBarcode !== false,
+      barcodeCaption: this.props.barcodeCaption || 'I LUV SWIM',
+      swimType: s.swimType,
+      bestStroke: s.bestStroke,
+      mainAttack: this.ATTACK[s.bestStroke] || '무한 자유형',
+      traitText: s.trait || this.TRAITS[0],
+      strokeOpts: ['자유형', '배영', '평영', '접영'].map(v => ({ label: v, style: this.optStyle(s.bestStroke === v), pick: () => { this.sfxClick(); this.setState({ bestStroke: v }); } })),
+      typeOpts: ['새벽 수영러', '아침 수영러', '점심 수영러', '저녁 수영러', '자유수영러'].map(v => ({ label: v, style: this.optStyle(s.swimType === v), pick: () => { this.sfxClick(); this.setState({ swimType: v }); } })),
+      saving: !!s.saving,
+      editingName: !s.saving,
+      nameShown: s.name || '영자',
+      saveLabel: s.saving ? '저장 중...' : '▶ 카드 저장하기',
+      saveCert: () => { this.sfxClick(); this.saveCert(); if(window.gtag)gtag('event','card_save');if(window.fbq)fbq('track','CompleteRegistration',{content_name:'card_save'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').completeRegistration({tag:'card_save'}); },
+      remakeCard: () => { this.sfxClick(); this.setState({ screen: 'form', formStep: 0, trait: '' }); },
+      isTitle: s.screen === 'title',
+      isPlay: s.screen === 'play',
+      isEnding: s.screen === 'ending',
+      isBonus1: s.id === 'bonus1',
+      showEgg: () => {
+        document.querySelectorAll('[style*="position:fixed"][style*="z-index:9999"]').forEach(e=>e.remove());
+        this.sfxSparkle(); if(window.gtag)gtag('event','easter_egg_found',{item:'cleanser'});
+        const ov = document.createElement('div');
+        ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
+        ov.onclick = function(e) { if(e.target===ov) ov.remove(); };
+        ov.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>✕</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cleanser-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:12px;color:#000;line-height:1.8"><b>??? 의 클렌저</b><br><span style=font-size:10px;color:#666>누군가 바닥에 놓고 간 것 같다.<br>앰플 같이 생겼네.</span></div></div></div>';
+        document.body.appendChild(ov);
+      },
+      showEgg2: () => {
+        document.querySelectorAll('[style*="position:fixed"][style*="z-index:9999"]').forEach(e=>e.remove());
+        this.sfxSparkle(); if(window.gtag)gtag('event','easter_egg_found',{item:'cream'});
+        const ov2 = document.createElement('div');
+        ov2.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
+        ov2.onclick = function(e) { if(e.target===ov2) ov2.remove(); };
+        ov2.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>\u2715</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cream-tube-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:12px;color:#000;line-height:1.8"><b>??? \uc758 \ud06c\ub9bc</b><br><span style=font-size:10px;color:#666>\uac70\uc758 \ub2e4 \uc4f4 \uac83 \uac19\ub2e4.<br>\uaf39\uaf39 \ub20c\ub7ec \uc9e0 \uc790\uad6d\uc774 \uc788\ub2e4.</span></div></div></div>';
+        document.body.appendChild(ov2);
+      },
+      jumpOpts: [{ id: 'title', label: '타이틀' }, { id: 'form', label: '카드 입력' }, { id: 'cert', label: '카드' }, { id: 'kit', label: '샘플 키트' }].concat(Object.keys(this.N).map(k => ({ id: k, label: k + ' · ' + ((this.N[k].text || '').replace(/\{\{\w+\}\}/g, '').replace(/\n/g, ' ').slice(0, 14)) }))),
+      jumpTo: (e) => {
+        const v = e.target.value;
+        if (v === 'title') this.setState({ screen: 'title' });
+        else if (v === 'form') this.setState({ screen: 'form', formStep: 0 });
+        else if (v === 'cert') this.openCert();
+        else if (v === 'kit') this.setState({ screen: 'kit' });
+        else this.go(v);
+      },
+      hasPhoto: !!s.photoSrc,
+      photoImg: s.photoSrc ? React.createElement('img', { src: s.photoSrc, alt: '사진', style: { position: 'absolute', left: '50%', top: '50%', width: '100%', height: '100%', objectFit: 'cover', transform: 'translate(-50%,-50%) translate(' + s.photoX + '%,' + s.photoY + '%) scale(' + s.photoZoom + ')' } }) : null,
+      fileRef: this.fileRef,
+      openPicker: () => { this.sfxClick(); if (this.fileRef.current) this.fileRef.current.click(); },
+      pickPhoto: (e) => {
+        const fl = e.target.files && e.target.files[0];
+        if (!fl) return;
+        const rd = new FileReader();
+        rd.onload = () => this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0 });
+        rd.readAsDataURL(fl);
+      },
+      zoomIn: () => this.setState(st => ({ photoZoom: Math.min(4, st.photoZoom + 0.15) })),
+      zoomOut: () => this.setState(st => ({ photoZoom: Math.max(0.4, st.photoZoom - 0.15) })),
+      moveL: () => this.setState(st => ({ photoX: st.photoX - 5 })),
+      moveR: () => this.setState(st => ({ photoX: st.photoX + 5 })),
+      moveU: () => this.setState(st => ({ photoY: st.photoY - 5 })),
+      moveD: () => this.setState(st => ({ photoY: st.photoY + 5 })),
+      resetPhoto: () => this.setState({ photoZoom: 1, photoX: 0, photoY: 0 }),
+      isForm: s.screen === 'form',
+      formStepLabel: 'STEP ' + (s.formStep + 1) + '/3',
+      formTitle: ['가장 자신 있는 영법은?', '당신은 어떤 TYPE?', '카드에 넣을 사진을 골라줘'][s.formStep],
+      formIsStroke: s.formStep === 0,
+      formIsType: s.formStep === 1,
+      formIsPhoto: s.formStep === 2,
+      formShowNext: s.formStep < 2,
+      formShowMake: s.formStep === 2,
+      formNext: () => { this.sfxClick(); this.setState({ formStep: s.formStep + 1 }); },
+      makeCard: () => { this.sfxClick(); this.openCert(); },
+      isCert: s.screen === 'cert',
+      isKit: s.screen === 'kit',
+      startGame: () => { this.sfxClick(); this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
+      restart: () => this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }),
+      goKit: () => { window.open('https://sooniko.co.kr', '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click');if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit'}); },
+      goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; if(window.gtag)gtag('event','bonus_stage'); },
+      soundLabel: s.muted ? '🔇 소리 끔' : '🔊 소리 켬',
+      toggleSound: () => { const m = !s.muted; this._muted = m; if (m) { this.bgm().pause(); } else { this.playBgm(); } this.setState({ muted: m }); },
+      stageCode: n.st || '',
+      place: n.pl || '',
+      speaker: this.sub(n.sp || '', s),
+      counter: typing ? '' : '▼',
+      typed: body.slice(0, Math.floor(s.shown)),
+      tap: () => { this.sfxClick(); if (s.shown < body.length) this.setState({ shown: body.length }); else if (n.auto && n.next && !n.ch) this.go(n.next); },
+      endTitle: (n.end || '').replace(/\s*-\s*.*$/, ''),
+      endSub: (() => { const m = /^[^-]*-\s*(.+)$/.exec(n.end || ''); return m ? '- ' + m[1].trim() + ' -' : ''; })(),
+      endTag: n.tag || '',
+      endDone: !typing,
+      retryLabel: n.retryLabel || '▶ 처음부터 다시하기',
+      endRetry: () => this.sfxClick() || (n.backTo ? this.go(n.backTo) : this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' })),
+      showNext: !typing && !n.ch && !n.auto,
+      isAuto: !typing && !!n.auto,
+      nextLabel: n.nextLabel || 'NEXT ▶',
+      hasHistory: (this._hist || []).length > 0,
+      goBack: () => {
+        this.sfxClick();
+        const h = this._hist || [];
+        if (!h.length) return;
+        const back = h[h.length - 1];
+        this._hist = h.slice(0, -1);
+        const t = this.N[back];
+        this.stopTrain();
+        this.setState({ id: back, imgId: back, shown: (this.body(t, { name: s.name, stroke: s.stroke }) || '').length, cursor: 0, pick: '' });
+      },
+      goNext: () => this.sfxClick() || (n.url ? window.open(n.url, '_blank', 'noopener') : (n.cert ? this.setState({ screen: 'form', formStep: 0 }) : (n.kit ? this.setState({ screen: 'kit' }) : this.go(n.next)))),
+      showChoices: !typing && !!n.ch,
+      choices: (n.ch || []).map((c, i) => ({
+        key: c.k, label: c.label,
+        cursor: s.cursor === i ? '▶' : '',
+        style: rowBase + (i ? 'border-top:3px solid #000;' : '') + (s.cursor === i ? 'background:#000; color:#CDECF8;' : 'background:#CDECF8; color:#000;'),
+        hover: () => this.setState({ cursor: i }),
+        pick: () => {
+          this.sfxClick();
+          const items = document.querySelectorAll('[data-choice-item]');
+          items.forEach((el, j) => {
+            if (j === i) { el.style.background = '#000'; el.style.color = '#CDECF8'; }
+            else { el.style.opacity = '0.15'; el.style.pointerEvents = 'none'; }
+          });
+          setTimeout(() => this.go(c.to), 500);
+        }
+      })),
+      name: s.name,
+      setName: (e) => this.setState({ name: e.target.value }),
+      stroke: s.stroke,
+      setStroke: (e) => this.setState({ stroke: e.target.value }),
+      strokeLabel: s.stroke || '평영'
+    };
+  }
+  componentDidMount() {
+    if (!document.hidden) this.armBgm(); else document.addEventListener('visibilitychange', () => this.armBgm(), { once: true });
+    const h = (location.hash || '').replace('#', '');
+    const s0 = this.props.startScreen || h;
+    if (h && this.N[h]) this.go(h);
+    else if (s0 === 'cert') this.openCert();
+    else if (s0 === 'form') this.setState({ screen: 'form', formStep: 0 });
+    else if (s0 === 'kit') this.setState({ screen: 'kit' });
+    this._t = setInterval(() => {
+      const st = this.state, n = this.N[st.id];
+      if (!n || st.screen === 'title' || st.screen === 'cert' || st.screen === 'kit') return;
+      const b = this.body(n, st);
+      if (st.shown < b.length) { this._w = 0; const nx = Math.min(b.length, st.shown + 1.5); if (Math.floor(nx / 2) !== Math.floor(st.shown / 2)) this.sfxType(); this.setState({ shown: nx }); return; }
+      if (n.auto && n.next && !n.ch && !n.end) { this._w = (this._w || 0) + 1; if (this._w >= 38) { this._w = 0; this.go(n.next); } }
+    }, 32);
+  }
+  componentWillUnmount() { this.stopTrain(); if (window.__swimBgmArmed === this._me) { clearInterval(window.__swimBgmTick); window.__swimBgmArmed = null; } clearInterval(this._t); if (this._bgm) this._bgm.pause(); }
+}
+</script>
+</body></html>
