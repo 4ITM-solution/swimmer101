@@ -29,20 +29,26 @@ fbq('track', 'PageView');
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&amp;family=Noto+Sans+KR:wght@400;700;900&amp;family=Do+Hyeon&amp;family=Jua&amp;family=Black+Han+Sans&amp;family=Gowun+Dodum&amp;family=Nanum+Pen+Script&amp;family=IBM+Plex+Sans+KR:wght@400;600;700&amp;display=swap" rel="stylesheet">
 <style>
-@font-face { font-family:'DungGeunMo'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/DungGeunMo.woff') format('woff'); font-weight:normal; font-style:normal; font-display:swap; }
-@font-face { font-family:'NeoDunggeunmo'; src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/DungGeunMo.woff') format('woff'); font-weight:normal; font-style:normal; font-display:swap; }
+@font-face {
+  font-family:'DungGeunMo';
+  /* 자체 호스팅 — 이미지와 같은 폴더에 폰트 파일을 올려두세요.
+     기존 jsDelivr(projectnoonnu) 경로는 2025년 이후 접속 불가 상태입니다. */
+  src:url('./DungGeunMo.woff2') format('woff2'),
+      url('./DungGeunMo.woff') format('woff'),
+      url('./DungGeunMo.otf') format('opentype'),
+      url('./DungGeunMo.ttf') format('truetype');
+  font-weight:normal; font-style:normal; font-display:swap;
+}
 </style>
 <script src="./image-slot.js"></script>
 
 <style>
-body { margin:0; background:#CDECF8; font-family:'DungGeunMo',monospace; -webkit-font-smoothing:none; overflow-x:hidden; }
+body { margin:0; background:#CDECF8; font-family:'DungGeunMo','Galmuri11',monospace; -webkit-font-smoothing:none; overflow-x:hidden; }
 * { box-sizing:border-box; }
-img { max-width:100%; }
+img { max-width:100%; image-rendering:pixelated; }
 a { color:#000; } a:hover { color:#2a6b93; }
 @keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
 @keyframes titleFadeIn { 0%, 25% { opacity:0; } 50%, 75% { opacity:1; } 100% { opacity:0; } }
@@ -54,39 +60,38 @@ a { color:#000; } a:hover { color:#2a6b93; }
 @keyframes clatter { 0%,100% { transform:translate(0,0); } 12% { transform:translate(0,-1px); } 26% { transform:translate(-1px,0.5px); } 43% { transform:translate(0.5px,1px); } 61% { transform:translate(-0.5px,-1px); } 78% { transform:translate(1px,0.5px); } }
 @keyframes buzz { 0%,100% { transform:translate(0,0); } 20% { transform:translate(-3px,1px); } 40% { transform:translate(3px,-1px); } 60% { transform:translate(-2px,-2px); } 80% { transform:translate(2px,2px); } }
 @keyframes eggFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
-button { font-family:'DungGeunMo',monospace; }
-input { font-family:'DungGeunMo',monospace; font-weight:400; }
-input::placeholder { font-weight:400; }
+button { font-family:inherit; letter-spacing:0.03em; }
+input { font-family:inherit; }
 </style>
 <script defer="" src="https://cdn.jsdelivr.net/npm/html2canvas-pro@1.5.8/dist/html2canvas-pro.min.js"></script>
 </helmet>
 
 
-<div style="font-family: {{ fontStack }}; max-width: 430px; margin: 0 auto; min-height: 100vh; border-left: 4px solid #000; border-right: 4px solid #000; box-sizing: border-box; padding: 10px; background-color: #CDECF8">
+<div style="font-family: {{ fontStack }}; max-width: 430px; margin: 0 auto; min-height: 100vh; letter-spacing: 0.02em; border-left: 4px solid #000; border-right: 4px solid #000; box-sizing: border-box; padding: 10px; background-color: #CDECF8">
 
   <!-- ========== TITLE ========== -->
   <sc-if value="{{ isTitle }}" hint-placeholder-val="{{ true }}">
     <div data-screen-label="타이틀" style="border:4px solid #000; background:#CDECF8; padding:12px;">
       <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
-        <span style="font-size: 14px; color: #CDECF8; white-space: nowrap; font-weight: 400; font-family: DungGeunMo">SOONIKO 25M LANE</span>
+        <span style="font-size: 14px; color: #CDECF8; white-space: nowrap; letter-spacing: 0.08em">SOONIKO 25M LANE</span>
       </div>
       <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:11px 12px; text-align:center;">
-        <div style="margin:0 0 14px; font-size: 20px; color: #000; font-family: DungGeunMo">- 오늘도 수영장 -</div>
+        <div style="margin:0 0 14px; font-size: 20px; color: #000; letter-spacing: 0.04em">- 오늘도 수영장 -</div>
         <img src="./title-logo.png" alt="SWIMMER 101" style="display:block; width:100%; height:auto; margin:0 auto 6px; image-rendering:pixelated;">
         
       </div>
       
-      <div style="position:relative; border:3px solid #000; border-top:none; height:190px; overflow:hidden;">
-        <img src="./title-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeOut 4s ease-in-out infinite;">
-        <img src="./title-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeIn 4s ease-in-out infinite;">
+      <div style="position:relative; border:3px solid #000; border-top:none; aspect-ratio:364/190; overflow:hidden;">
+        <img src="./title-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; animation:titleFadeOut 4s ease-in-out infinite;">
+        <img src="./title-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; animation:titleFadeIn 4s ease-in-out infinite;">
       </div><div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:12px;">
         <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
-          <span style="font-size: 12px; color: #000; width: 108px; flex-shrink: 0; font-weight: 700; white-space: nowrap">주인공 이름</span><input value="{{ name }}" onChange="{{ setName }}" placeholder="영자" style="flex:1; min-width:0; box-sizing:border-box; background:#fff; border:3px solid #000; outline:none; font-size:14px; color:#000; font-weight:400; padding:7px 8px;">
+          <span style="font-size: 14px; color: #000; width: 7.5em; flex-shrink: 0; white-space: nowrap">주인공 이름</span><input value="{{ name }}" onChange="{{ setName }}" placeholder="영자" maxlength="6" style="flex:1; min-width:0; box-sizing:border-box; background:#fff; border:3px solid #000; outline:none; font-size:16px; color:#000; padding:7px 8px; letter-spacing:0.02em;">
           
         </div>
-        <div style="margin-top: 12px; font-size: 13px; color: #000; line-height: 2; word-break: keep-all; font-weight: 700">오늘은 제일 자신 없는 {{ strokeLabel }} 하는 날.<br>퇴근부터 강습까지, 무사히 갈 수 있을까?</div>
+        <div style="margin-top: 14px; font-size: 14px; color: #000; line-height: 1.9; word-break: keep-all; text-wrap: pretty">오늘은 제일 자신 없는 {{ strokeLabel }} 하는 날.<br>퇴근부터 강습까지, 무사히 갈 수 있을까?</div>
       </div>
-      <button onClick="{{ startGame }}" style="margin-top: 12px; width: 100%; padding: 16px 0; background: #CDECF8; border: 4px solid #000; font-size: 26px; color: #000; cursor: pointer; font-weight: 400; font-family: 'DungGeunMo',monospace" style-hover="background:#000; color:#CDECF8;">GAME START</button>
+      <button onClick="{{ startGame }}" style="margin-top: 12px; width: 100%; padding: 16px 0; background: #CDECF8; border: 4px solid #000; font-size: 24px; color: #000; cursor: pointer; letter-spacing: 0.06em" style-hover="background:#000; color:#CDECF8;">GAME START</button>
     </div>
   </sc-if>
 
@@ -94,19 +99,21 @@ input::placeholder { font-weight:400; }
   <sc-if value="{{ isEnding }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="엔딩" style="border:4px solid #000; background:#CDECF8; min-height:calc(100vh - 20px); box-sizing:border-box; padding:14px; display:flex; flex-direction:column;">
       <div style="border:3px solid #000; background:#000; padding:14px 12px; text-align:center;">
-        <div style="font-family:'DungGeunMo',monospace; font-size:30px; line-height:1.1; color:#CDECF8; word-break:keep-all;">{{ endTitle }}</div>
-        <div style="font-family:'DungGeunMo',monospace; font-size:30px; line-height:1.1; color:#CDECF8; word-break:keep-all;">{{ endSub }}</div>
+        <div style="font-size:32px; line-height:1.2; letter-spacing:0.01em; color:#CDECF8; word-break:keep-all;">{{ endTitle }}</div>
+        <sc-if value="{{ hasEndSub }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:32px; line-height:1.2; letter-spacing:0.01em; color:#CDECF8; word-break:keep-all;">{{ endSub }}</div>
+        </sc-if>
       </div>
       <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:16px 14px; flex:1;">
-        <div style="font-size:15px; color:#000; font-weight:700; line-height:2.1; white-space:pre-wrap; word-break:keep-all;">{{ typed }}</div>
+        <div style="font-size:16px; color:#000; line-height:1.9; white-space:pre-wrap; word-break:keep-all; text-wrap:pretty;">{{ typed }}</div>
       </div>
       <sc-if value="{{ endDone }}" hint-placeholder-val="{{ true }}">
         <div style="border:3px solid #000; border-top:none; background:#000; padding:10px 12px; text-align:center;">
-          <span style="font-size:12px; color:#CDECF8; word-break:keep-all;">{{ endTag }}</span>
+          <span style="font-size:12px; color:#CDECF8; word-break:keep-all; letter-spacing:0.04em;">{{ endTag }}</span>
         </div>
       </sc-if>
       <sc-if value="{{ endDone }}" hint-placeholder-val="{{ true }}">
-        <button onClick="{{ endRetry }}" style="margin-top:12px; width:100%; padding:16px 0; background:#CDECF8; border:4px solid #000; font-size:22px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">{{ retryLabel }}</button>
+        <button onClick="{{ endRetry }}" style="margin-top:12px; width:100%; padding:16px 0; background:#CDECF8; border:4px solid #000; font-size:20px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">{{ retryLabel }}</button>
       </sc-if>
     </div>
   </sc-if>
@@ -115,26 +122,26 @@ input::placeholder { font-weight:400; }
   <sc-if value="{{ isCert }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="자격증" style="border:4px solid #000; background:#CDECF8; padding:12px;">
       <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:1px;">
-        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">STAGE 06</span>
-        <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">SWIMMER CARD</span>
+        <span style="font-size:14px; color:#CDECF8; white-space:nowrap; letter-spacing:0.08em;">STAGE 06</span>
+        <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:0.08em;">SWIMMER CARD</span>
         <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button>
       </div>
       
       <div data-cert-card="1" style="animation:cardFlip 1.1s cubic-bezier(0.22,0.9,0.3,1) both; backface-visibility:hidden; position: relative; width: 100%; max-width: 368px; aspect-ratio: 368/251; margin: 12px auto 0; background: url('./swimmer-card-bg.png') center/100% 100% no-repeat">
-        <span style="position: absolute; left: 19%; top: 30.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ nameShown }}</span>
-        <span style="position: absolute; left: 19%; top: 42.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ swimType }}</span>
-        <span style="position: absolute; left: 19%; top: 54.5%; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ bestStroke }}</span>
-        <span style="position: absolute; left: 5.3%; top: 83.7%; width: 65%; font-family: 'Galmuri11',monospace; font-size: clamp(8px,2.5vw,10px); line-height: 1.5; color: #1b7fa8; word-break: keep-all">{{ traitText }}</span>
+        <span style="position: absolute; left: 19%; top: 30.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ nameShown }}</span>
+        <span style="position: absolute; left: 19%; top: 42.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ swimType }}</span>
+        <span style="position: absolute; left: 19%; top: 54.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ bestStroke }}</span>
+        <span style="position: absolute; left: 5.3%; top: 83.7%; width: 65%; font-family: 'Galmuri11',monospace; font-size: clamp(10px,2.5vw,12px); line-height: 1.5; color: #1b7fa8; word-break: keep-all">{{ traitText }}</span>
         <div style="position:absolute; left:67.4%; top:33.5%; width:27.4%; height:49.8%; box-sizing:border-box; border:2px solid #000; overflow:hidden; background:#d9d9d9;">
           <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
             {{ photoImg }}
           </sc-if>
         </div>
       </div>
-      <div style="display:grid; gap:8px; margin-top:12px;">
-        <button onClick="{{ saveCert }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-size:22px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">{{ saveLabel }}</button>
-        <button onClick="{{ remakeCard }}" style="width:100%; padding:12px 0; background:#fff; border:4px solid #000; font-size:16px; color:#000; cursor:pointer;" style-hover="background:#000; color:#fff;">↺ 다시 만들기</button>
-        <button onClick="{{ goBonus }}" style="width:100%; padding:15px 0; background:#CDECF8; border:4px solid #000; font-size:20px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 어? 뭔가 있는데..</button>
+      <div style="display:grid; gap:8px; margin-top:12px; justify-items:center;">
+        <button onClick="{{ saveCert }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-size:20px; color:#CDECF8; cursor:pointer; letter-spacing:0.04em;" style-hover="background:#CDECF8; color:#000;">{{ saveLabel }}</button>
+        <button onClick="{{ goBonus }}" style="width:100%; padding:15px 0; background:#fff; border:4px solid #000; font-size:20px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 어? 뭔가 있는데..</button>
+        <button onClick="{{ remakeCard }}" style="margin-top:2px; padding:8px 14px; background:#CDECF8; border:3px solid #000; font-size:14px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">↺ 다시 만들기</button>
       </div>
     </div>
   </sc-if>
@@ -144,15 +151,15 @@ input::placeholder { font-weight:400; }
   <sc-if value="{{ isForm }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="카드입력" style="border:4px solid #000; background:#CDECF8; padding:12px;">
       <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:14px; color:#CDECF8;">SWIMMER CARD</span>
-        <span style="font-size:14px; color:#CDECF8;">{{ formStepLabel }}</span>
+        <span style="font-size:14px; color:#CDECF8; letter-spacing:0.08em;">SWIMMER CARD</span>
+        <span style="font-size:14px; color:#CDECF8; letter-spacing:0.08em;">{{ formStepLabel }}</span>
       </div>
 
       <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:14px;">
-        <div style="font-family:'DungGeunMo',monospace; font-size:22px; color:#000; word-break:keep-all;">{{ formTitle }}</div>
+        <div style="font-size:20px; color:#000; word-break:keep-all; letter-spacing:0.02em;">{{ formTitle }}</div>
 
         <sc-if value="{{ formIsStroke }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:12px;">
             <sc-for list="{{ strokeOpts }}" as="o" hint-placeholder-count="4">
               <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
             </sc-for>
@@ -160,7 +167,7 @@ input::placeholder { font-weight:400; }
         </sc-if>
 
         <sc-if value="{{ formIsType }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:12px;">
             <sc-for list="{{ typeOpts }}" as="o" hint-placeholder-count="5">
               <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
             </sc-for>
@@ -169,7 +176,7 @@ input::placeholder { font-weight:400; }
 
         <sc-if value="{{ formIsPhoto }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex; gap:12px; align-items:flex-start; margin-top:12px; flex-wrap:wrap;">
-            <div style="position:relative; width:132px; height:163px; border:3px solid #000; background:#fff; overflow:hidden; flex-shrink:0; max-width:calc(50% - 6px);">
+            <div style="position:relative; width:132px; aspect-ratio:132/163; border:3px solid #000; background:#fff; overflow:hidden; flex-shrink:0; max-width:calc(50% - 6px);">
               <img src="./photo-placeholder.png" alt="" style="position:absolute; inset:6px; width:calc(100% - 12px); height:calc(100% - 12px); object-fit:contain; image-rendering:pixelated; pointer-events:none;">
               <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
                 {{ photoImg }}
@@ -177,10 +184,10 @@ input::placeholder { font-weight:400; }
             </div>
             <div style="display:grid; gap:8px; align-content:start;">
               <input type="file" accept="image/*" onChange="{{ pickPhoto }}" style="display:none;" ref="{{ fileRef }}">
-              <button onClick="{{ openPicker }}" style="padding:9px 12px; background:#CDECF8; border:3px solid #000; font-family:'Galmuri11',monospace; font-weight:700; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">사진 업로드</button>
+              <button onClick="{{ openPicker }}" style="padding:9px 12px; background:#CDECF8; border:3px solid #000; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">사진 업로드</button>
               <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
                 <div style="display:grid; gap:6px; border:3px solid #000; background:#fff; padding:8px;">
-                  <span style="font-family:'Galmuri11',monospace; font-size:12px; color:#000;">EDIT</span>
+                  <span style="font-size:12px; color:#000; letter-spacing:0.08em;">EDIT</span>
                   <div style="display:flex; gap:6px;">
                     <button onClick="{{ zoomOut }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:14px; cursor:pointer;">-</button>
                     <button onClick="{{ zoomIn }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:14px; cursor:pointer;">+</button>
@@ -191,7 +198,7 @@ input::placeholder { font-weight:400; }
                     <button onClick="{{ moveU }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">▲</button>
                     <button onClick="{{ moveD }}" style="width:30px; height:28px; border:2px solid #000; background:#CDECF8; font-size:12px; cursor:pointer;">▼</button>
                   </div>
-                  <button onClick="{{ resetPhoto }}" style="padding:5px 8px; border:2px solid #000; background:#fff; font-family:'Galmuri11',monospace; font-size:12px; cursor:pointer;">초기화</button>
+                  <button onClick="{{ resetPhoto }}" style="padding:5px 8px; border:2px solid #000; background:#fff; font-size:12px; cursor:pointer;">초기화</button>
                 </div>
               </sc-if>
             </div>
@@ -201,33 +208,12 @@ input::placeholder { font-weight:400; }
 
       <div style="display:grid; gap:8px; margin-top:12px;">
         <sc-if value="{{ formShowNext }}" hint-placeholder-val="{{ true }}">
-          <button onClick="{{ formNext }}" style="width:100%; padding:15px 0; background:#CDECF8; border:4px solid #000; font-family:'DungGeunMo',monospace; font-size:22px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 다음</button>
+          <button onClick="{{ formNext }}" style="width:100%; padding:15px 0; background:#CDECF8; border:4px solid #000; font-size:20px; color:#000; cursor:pointer;" style-hover="background:#000; color:#CDECF8;">▶ 다음</button>
         </sc-if>
         <sc-if value="{{ formShowMake }}" hint-placeholder-val="{{ false }}">
-          <button onClick="{{ makeCard }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-family:'DungGeunMo',monospace; font-size:26px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">▶ 카드 만들기</button>
+          <button onClick="{{ makeCard }}" style="width:100%; padding:15px 0; background:#000; border:4px solid #000; font-size:20px; color:#CDECF8; cursor:pointer; letter-spacing:0.04em;" style-hover="background:#CDECF8; color:#000;">▶ 카드 만들기</button>
         </sc-if>
       </div>
-    </div>
-  </sc-if>
-
-  <!-- ========== SAMPLE KIT ========== -->
-  <sc-if value="{{ isKit }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="샘플키트" style="border:4px solid #000; background:#CDECF8; padding:12px;">
-      <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
-        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">BONUS</span>
-        <button onClick="{{ restart }}" style="background:#CDECF8; border:2px solid #CDECF8; padding:5px 8px; font-size:14px; color:#000; font-weight:700; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">↺ 게임 하러가기</button>
-      </div>
-      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:16px 14px; text-align:center;">
-        <div style="font-family:'DungGeunMo',monospace; font-size:28px; line-height:1.1; color:#000;">SOONIKO SAMPLE SET</div>
-        <div style="font-size:14px; color:#000; margin-top:6px;">수영 후 피부를 위한 스킨케어 3종</div>
-      </div>
-      <div style="border:3px solid #000; border-top:none; height:200px; background:#CDECF8; display:flex; align-items:center; justify-content:center;">
-        <span style="font-size:14px; color:#000;">[ PRODUCT IMAGE ]</span>
-      </div>
-      <div style="border:3px solid #000; border-top:none; background:#CDECF8; padding:14px;">
-        <div style="font-size:14px; color:#000; font-weight:700; line-height:2.05; word-break:keep-all;">수영 후 신경 쓰이는 당김, 건조함, 열감.<br>필요한 순서대로 세안하고, 식히고, 보습하는 3단계를 담았습니다.<br><br>가볍게 챙겨 다음 수영부터 사용해보세요.<br><br>다음 수영은 새롭게 시작해볼까요?</div>
-      </div>
-      <button style="margin-top:12px; width:100%; padding:16px 0; background:#000; border:4px solid #000; font-size:26px; color:#CDECF8; cursor:pointer;" style-hover="background:#CDECF8; color:#000;">🎁 선물 받기</button>
     </div>
   </sc-if>
 
@@ -236,46 +222,46 @@ input::placeholder { font-weight:400; }
     <div data-screen-label="게임" style="border: 4px solid #000; padding: 10px; background-color: #CDECF8">
 
       <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 8px;">
-        <span style="font-size:14px; color:#CDECF8; white-space:nowrap;">{{ stageCode }}</span>
-        <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ place }}</span>
+        <span style="font-size:14px; color:#CDECF8; white-space:nowrap; letter-spacing:0.08em;">{{ stageCode }}</span>
+        <span style="flex:1 1 auto; min-width:0; font-size:12px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:0.04em;">{{ place }}</span>
         <span style="display:flex; gap:1px; flex:0 0 auto; align-items:center;">
         <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button></span>
       </div>
 
-      <div style="border: 3px solid #000; border-top: none; height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #FFEDB8">
+      <div style="border: 3px solid #000; border-top: none; aspect-ratio: 752 / 500; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #CDECF8">
         <sc-if value="{{ img_s1a }}" hint-placeholder-val="{{ true }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./----1-msgyp7w2-5x5a.gif" alt="----1" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./----1-msgyp7w2-5x5a.gif" alt="----1" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s1b }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./11-msgvwuvv-j2oe.png" alt="11" width="721" height="631" style="max-width: 100%; height: 177px; display: block; object-fit: cover; width: 202px; aspect-ratio: 721 / 631; animation: buzz 0.28s steps(2,end) infinite"></div>
+          <img src="./11-msgvwuvv-j2oe.png" alt="11" width="721" height="631" style="width: 100%; height: 100%; object-fit: contain; display: block; animation: buzz 0.28s steps(2,end) infinite"></div>
         </sc-if>
         <sc-if value="{{ img_s1b2 }}" hint-placeholder-val="{{ false }}">
           <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #CDECF8">
             
-          <img src="./----2-msgxj7nw-0ike.gif" alt="----2" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./----2-msgxj7nw-0ike.gif" alt="----2" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s1c }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./----3-msgzhn6q-zare.gif" alt="----3" width="752" height="500" style="max-width: 100%; height: 300px; display: block; object-fit: cover; width: 384px; aspect-ratio: 752 / 500"></div>
+          <img src="./----3-msgzhn6q-zare.gif" alt="----3" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_t1 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./----4-msn74i1h-eeqd.png" alt="----4" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500; animation:clatter 0.9s steps(3,end) infinite;">
+            <img src="./----4-msn74i1h-eeqd.png" alt="----4" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block; animation:clatter 0.9s steps(3,end) infinite;">
           </div>
         </sc-if>
         <sc-if value="{{ img_t1b }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--5-msn7fp4o-kabv.gif" alt="gif--5" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--5-msn7fp4o-kabv.gif" alt="gif--5" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s2a }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-            <img src="./locker-room-people-removed-752x500.png" alt="탈의실" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500; image-rendering: pixelated;">
+            <img src="./locker-room-people-removed-752x500.png" alt="탈의실" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block; image-rendering: pixelated;">
             <div onClick="{{ showEgg }}" style="position:absolute; left:50%; bottom:18%; transform:translateX(-50%); width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite;">
               <img src="./cleanser-bench-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
             </div>
@@ -284,41 +270,41 @@ input::placeholder { font-weight:400; }
         <sc-if value="{{ img_s2a2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--6-msn7u2h5-wh17.gif" alt="gif--6" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--6-msn7u2h5-wh17.gif" alt="gif--6" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s2b }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--6-msn7uarr-tpfb.gif" alt="gif--6" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--6-msn7uarr-tpfb.gif" alt="gif--6" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s2c }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--7-msn7ulv0-6di8.gif" alt="gif--7" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--7-msn7ulv0-6di8.gif" alt="gif--7" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s3a }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--8-msn8a7bb-w23h.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--8-msn8a7bb-w23h.gif" alt="gif--8" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s3a2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--8-msnc5x8d-y5hx.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--8-msnc5x8d-y5hx.gif" alt="gif--8" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s3b }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--8-msn8azcu-17od.gif" alt="gif--8" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--8-msn8azcu-17od.gif" alt="gif--8" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s3c }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--9-msn8b8ml-4418.gif" alt="gif--9" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--9-msn8b8ml-4418.gif" alt="gif--9" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4a }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-            <img src="./gif--10-msn8bjp7-gmoe.gif" alt="gif--10" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500">
+            <img src="./gif--10-msn8bjp7-gmoe.gif" alt="gif--10" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block">
             <div onClick="{{ showEgg2 }}" style="position:absolute; left:42%; top:52%; width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite 1.5s;">
               <img src="./cream-tube-easter-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
             </div>
@@ -326,159 +312,162 @@ input::placeholder { font-weight:400; }
         </sc-if>
         <sc-if value="{{ img_s4r1 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./gif-mirror-result.gif" alt="s4r1" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./gif-mirror-result.gif" alt="s4r1" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_s4r2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./gif-mirror-result.gif" alt="s4r2" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./gif-mirror-result.gif" alt="s4r2" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_s4r3 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./gif-mirror-result.gif" alt="s4r3" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./gif-mirror-result.gif" alt="s4r3" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_s4r4 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./gif-mirror-result.gif" alt="s4r4" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./gif-mirror-result.gif" alt="s4r4" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_s4r5 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--10-msn8cmdf-6u1m.gif" alt="gif--10" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--10-msn8cmdf-6u1m.gif" alt="gif--10" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4c }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--11-msn8iced-82l0.gif" alt="gif--11" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--11-msn8iced-82l0.gif" alt="gif--11" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4d }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--14-msnbabbo-956t.gif" alt="gif--14" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--14-msnbabbo-956t.gif" alt="gif--14" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4e }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--13-msn9dpyw-f8p2.gif" alt="gif--13" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--13-msn9dpyw-f8p2.gif" alt="gif--13" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4e2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--13-msn9e19d-9244.gif" alt="gif--13" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--13-msn9e19d-9244.gif" alt="gif--13" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s4e3 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--15-msnbate6-pxlc.gif" alt="gif--15" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--15-msnbate6-pxlc.gif" alt="gif--15" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5a }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--17-msnbkfk6-xxal.gif" alt="gif--17" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--17-msnbkfk6-xxal.gif" alt="gif--17" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5b }}" hint-placeholder-val="{{ false }}">
           <div style="position:relative; width:100%; height:100%; background:#CDECF8; overflow:hidden;">
             
-          <img src="./han-before.png" alt="한강 돌고래 등장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
-            <img src="./han-after.png" alt="돌고래" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:hanFade 1s ease-in-out 0.6s both;"></div>
+          <img src="./han-before.png" alt="한강 돌고래 등장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
+            <img src="./han-after.png" alt="돌고래" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; animation:hanFade 1s ease-in-out 0.6s both;"></div>
         </sc-if>
         <sc-if value="{{ img_s5b2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./image-2360-mso1pb8m-3g6s.png" alt="image-2360" width="1854" height="619" style="max-width: 100%; height: 178px; display: block; object-fit: cover; width: min(453px, 100%); aspect-ratio: 1854 / 619; animation:swimPan 5s ease-out both;"></div>
+            <img src="./image-2360-mso1pb8m-3g6s.png" alt="image-2360" width="1854" height="619" style="height: 100%; width: auto; max-width: none; display: block; animation:swimPan 5s ease-out both;"></div>
         </sc-if>
         <sc-if value="{{ img_s5c }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--21-mso21ymq-8780.gif" alt="gif--21" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--21-mso21ymq-8780.gif" alt="gif--21" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5d }}" hint-placeholder-val="{{ false }}">
           <div style="position:relative; width:100%; height:100%; background:#CDECF8; overflow:hidden;">
-            <img src="./s5d-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeOut 4s ease-in-out infinite;">
-            <img src="./s5d-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated; animation:titleFadeIn 4s ease-in-out infinite;">
+            <img src="./s5d-a.png" alt="지하철 안" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; animation:titleFadeOut 4s ease-in-out infinite;">
+            <img src="./s5d-b.png" alt="수영 준비" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; animation:titleFadeIn 4s ease-in-out infinite;">
           </div>
         </sc-if>
         <sc-if value="{{ img_s5e }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--23-mso40wso-iacy.gif" alt="gif--23" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--23-mso40wso-iacy.gif" alt="gif--23" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5e2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="max-width: 100%; height: 273px; display: block; object-fit: cover; width: 463px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5e3 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="max-width: 100%; height: 273px; display: block; object-fit: cover; width: 463px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--24-mso45srs-utlt.gif" alt="gif--24" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         <sc-if value="{{ img_s5f }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
             
-          <img src="./gif--30-msogxsob-5a5o.gif" alt="gif--30" width="752" height="500" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 752px; aspect-ratio: 752 / 500"></div>
+          <img src="./gif--30-msogxsob-5a5o.gif" alt="gif--30" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
         </sc-if>
         
         <sc-if value="{{ img_b2 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 피부" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 피부" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_b3 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 선물" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./image-2369-msgupn39-hbp2.png" alt="보너스 선물" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
         <sc-if value="{{ img_bonus1 }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-            <img src="./mystery-gift-closed-open-2frame.gif" alt="가방 안 선물" style="width:100%; height:100%; object-fit:cover; display:block; image-rendering:pixelated;">
+            <img src="./mystery-gift-closed-open-2frame.gif" alt="가방 안 선물" style="width:100%; height:100%; object-fit:contain; display:block;">
           </div>
         </sc-if>
       </div>
 
       <div style="border:3px solid #000; border-top:none; background:#CDECF8;">
         <div style="border-bottom:3px solid #000; padding:6px 10px; display:flex; justify-content:space-between;">
-          <span style="font-size:14px; color:#000; font-weight:700; white-space:nowrap;">{{ speaker }}</span>
+          <span style="font-size:14px; color:#000; white-space:nowrap; letter-spacing:0.02em;">{{ speaker }}</span>
           <span style="font-size:14px; color:#000;">{{ counter }}</span>
         </div>
         <div onClick="{{ tap }}" style="padding:12px 12px 8px; min-height:120px; cursor:pointer;">
-          <div style="font-size:15px; color:#000; font-weight:700; line-height:2.05; white-space:pre-wrap; word-break:keep-all;">{{ typed }}</div>
+          <div style="font-size:16px; color:#000; line-height:1.9; white-space:pre-wrap; word-break:keep-all; text-wrap:pretty;">{{ typed }}</div>
         </div>
         <sc-if value="{{ showNext }}" hint-placeholder-val="{{ true }}">
-          <div style="border-top:3px solid #000; display:flex; align-items:stretch;">
+          <div style="border-top:3px solid #000; display:grid; grid-template-columns:1fr 1fr;">
             <sc-if value="{{ hasHistory }}" hint-placeholder-val="{{ false }}">
-              <div onClick="{{ goBack }}" style="padding:14px 12px; font-size:14px; color:#000; font-weight:700; cursor:pointer; white-space:nowrap; border-right:3px solid #000;" style-hover="background:#000; color:#CDECF8;">◀ 이전</div>
+              <div onClick="{{ goBack }}" style="padding:14px 12px; font-size:14px; color:#000; cursor:pointer; white-space:nowrap; border-right:3px solid #000; letter-spacing:0.02em;" style-hover="background:#000; color:#CDECF8;">◀ 이전</div>
             </sc-if>
-            <div onClick="{{ goNext }}" style="flex:1; padding:14px 12px; text-align:right; font-size:14px; color:#000; font-weight:700; cursor:pointer; word-break:keep-all;" style-hover="background:#000; color:#CDECF8;">{{ nextLabel }}</div>
+            <sc-if value="{{ noHistory }}" hint-placeholder-val="{{ true }}">
+              <div style="border-right:3px solid #000;"></div>
+            </sc-if>
+            <div onClick="{{ goNext }}" style="padding:14px 12px; text-align:right; font-size:14px; color:#000; cursor:pointer; word-break:keep-all; letter-spacing:0.02em;" style-hover="background:#000; color:#CDECF8;">{{ nextLabel }}</div>
           </div>
         </sc-if>
         <sc-if value="{{ isAuto }}" hint-placeholder-val="{{ false }}">
-          <div style="border-top:3px solid #000; padding:14px 12px; text-align:right; font-size:14px; color:#000; font-weight:700; animation:blink 1s infinite;">. . .</div>
+          <div style="border-top:3px solid #000; padding:14px 12px; text-align:right; font-size:14px; color:#000; animation:blink 1s infinite;">. . .</div>
         </sc-if>
       </div>
 
       <sc-if value="{{ isBonus1 }}" hint-placeholder-val="{{ false }}">
         <div style="margin-top:8px; text-align:center;">
-          <div style="border:2px solid #000; padding:8px; margin:0 4px; background:#fff; font-family:'DungGeunMo',monospace; font-size:12px; line-height:1.8;">
-            EP.02 — COMING SOON<br>
-            <span style="font-size:10px; color:#666;">{{ nameShown }}의 이야기는 아직 끝나지 않았다.</span><br>
-            <span style="display:inline-flex; align-items:center; gap:3px; background:#FEE500; color:#000; padding:2px 8px; font-size:10px; border-radius:2px; margin-top:4px; cursor:pointer;">💬 가장 먼저 알림 받기</span>
+          <div style="border:3px solid #000; padding:12px; background:#CDECF8; font-size:16px; line-height:1.6; letter-spacing:0.08em;">
+            EP.02 — COMING SOON
+            <div style="margin-top:8px; font-size:14px; color:#000; letter-spacing:0.02em;">{{ nameShown }}의 이야기는 아직 끝나지 않았다.</div>
+            <div onClick="{{ openKakao }}" style="margin-top:12px; background:#000; color:#CDECF8; padding:11px 12px; font-size:14px; cursor:pointer; letter-spacing:0.02em;" style-hover="background:#CDECF8; color:#000;">💬 가장 먼저 알림 받기</div>
           </div>
         </div>
       </sc-if>
 
       <sc-if value="{{ showChoices }}" hint-placeholder-val="{{ false }}">
         <div style="margin-top:10px; border:3px solid #000; background:#000; padding:6px 10px;">
-          <span style="font-size:14px; color:#CDECF8;">WHAT WILL YOU DO?</span>
+          <span style="font-size:14px; color:#CDECF8; letter-spacing:0.08em;">WHAT WILL YOU DO?</span>
         </div>
         <div style="border:3px solid #000; border-top:none; background:#CDECF8;">
           <sc-for list="{{ choices }}" as="c" hint-placeholder-count="2">
             <div data-choice-item="1" onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" style="{{ c.style }}">
-              <span style="width:16px; flex-shrink:0;">{{ c.cursor }}</span>
-              <span style="width:18px; flex-shrink:0;">{{ c.key }}</span>
-              <span style="flex:1; word-break:keep-all;">{{ c.label }}</span>
+              <span style="width:1.2em; flex-shrink:0;">{{ c.cursor }}</span>
+              <span style="width:1.2em; flex-shrink:0;">{{ c.key }}</span>
+              <span style="flex:1; word-break:keep-all; text-wrap:pretty;">{{ c.label }}</span>
             </div>
           </sc-for>
         </div>
@@ -487,7 +476,7 @@ input::placeholder { font-weight:400; }
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:900},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;title&quot;,&quot;form&quot;,&quot;cert&quot;,&quot;kit&quot;],&quot;default&quot;:&quot;title&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;편집&quot;},&quot;pixelFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;DungGeunMo&quot;,&quot;Galmuri7&quot;,&quot;Galmuri9&quot;,&quot;Galmuri11&quot;,&quot;Galmuri14&quot;,&quot;GalmuriMono11&quot;,&quot;Pretendard&quot;,&quot;Gothic A1&quot;,&quot;Noto Sans KR&quot;,&quot;IBM Plex Sans KR&quot;,&quot;Do Hyeon&quot;,&quot;Jua&quot;,&quot;Black Han Sans&quot;,&quot;Gowun Dodum&quot;,&quot;Nanum Pen Script&quot;],&quot;default&quot;:&quot;DungGeunMo&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;타이포&quot;},&quot;bgmVolume&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;default&quot;:0.28,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;사운드&quot;}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:900},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;title&quot;,&quot;form&quot;,&quot;cert&quot;],&quot;default&quot;:&quot;title&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;편집&quot;},&quot;pixelFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;DungGeunMo&quot;,&quot;Galmuri7&quot;,&quot;Galmuri9&quot;,&quot;Galmuri11&quot;,&quot;Galmuri14&quot;,&quot;GalmuriMono11&quot;,&quot;Pretendard&quot;],&quot;default&quot;:&quot;DungGeunMo&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;타이포&quot;},&quot;bgmVolume&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;default&quot;:0.28,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;사운드&quot;}}">
 class Component extends DCLogic {
   state = { screen: 'title', photoSrc: '', photoZoom: 1, photoX: 0, photoY: 0, hist: [], formStep: 0, muted: false, bestStroke: '자유형', swimType: '새벽 수영러', trait: '', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, name: '', stroke: '', pick: '' };
   N = {
@@ -560,8 +549,8 @@ class Component extends DCLogic {
     s5f: { st: 'STAGE 05', pl: '한강 / 밤', sp: '🐬 수니코 돌고래', nextLabel: '▶ 자격증 받기', cert: true,
       text: '후후. 그것부터 물어보실 줄 알았어요.\n\n{{name}}님보다 먼저\n100명의 수영인을 만났거든요.\n\n그러니까 {{name}}님은 101번째.\n\n그 100명이 누구인지는\n조금 있다 알려드릴게요.' },
 
-    bonus1: { st: 'BONUS STAGE', pl: '집', sp: '상황', nextLabel: '🎁 열어볼까', url: 'https://sooniko.co.kr',
-      text: '집에 돌아왔는데\n뭔가 놓여있다.\n\n내 건 아닌데..\n누가 놓둔 거지?' },
+    bonus1: { st: 'BONUS STAGE', pl: '집', sp: '상황', nextLabel: '🎁 열어볼까 ▶', url: 'https://sooniko.kr/product/detail.html?product_no=22',
+      text: '집에 돌아왔는데\n뭔가 놓여있다.\n\n내 건 아닌데..\n누가 놔둔 거지?' },
     e1: { end: 'BAD END 01 - 마라탕의 승리', tag: '마라탕 +1 / 평영 경험치 +0', backTo: 's1b2', retryLabel: '▶ 이전 선택지로 돌아가기',
       text: '보글보글 끓는 빨간 국물.\n둘은 말없이 마라탕에 집중한다.\n\n정신을 차리고 시계를 보니\n강습은 이미 끝났을 시간이다.\n\n{{name}}\n……오늘 {{stroke}} 갈걸.\n맛있긴한데 왜 조금 찝찝하지..' },
     e2: { end: 'BAD END 02 - 그때 말할걸', tag: '한마디를 아낀 대가', backTo: 's2b', retryLabel: '▶ 이전 선택지로 돌아가기',
@@ -588,7 +577,7 @@ class Component extends DCLogic {
     this.setState({ screen: 'cert', trait: t });
   }
   optStyle(on) {
-    return 'padding:7px 10px; font-family:\'DungGeunMo\',monospace; font-size:15px; border:3px solid #000; cursor:pointer; white-space:nowrap; ' + (on ? 'background:#000; color:#CDECF8;' : 'background:#fff; color:#000;');
+    return 'padding:9px 12px; font-size:16px; letter-spacing:0.02em; border:3px solid #000; cursor:pointer; white-space:nowrap; ' + (on ? 'background:#000; color:#CDECF8;' : 'background:#fff; color:#000;');
   }
   bgm() {
     if (!window.__swimBgm) {
@@ -948,11 +937,10 @@ class Component extends DCLogic {
     const typing = s.shown < body.length;
     const imgFlags = {};
     Object.keys(this.N).forEach(k => { imgFlags['img_' + k] = (k === (s.imgId || s.id)); });
-    const rowBase = 'display:flex; gap:6px; align-items:flex-start; padding:14px 10px; font-size:14px; cursor:pointer; line-height:1.6;';
+    const rowBase = 'display:flex; gap:8px; align-items:flex-start; padding:14px 10px; font-size:16px; cursor:pointer; line-height:1.6; letter-spacing:0.02em;';
     return {
       ...imgFlags,
-      fontStack: (this.props.pixelFont || 'DungGeunMo') + ',monospace',
-      fontStack: (this.props.pixelFont || 'DungGeunMo') + ',monospace',
+      fontStack: (this.props.pixelFont || 'DungGeunMo') + ",'Galmuri11',monospace",
       cardBg: this.props.cardBg || '#ffffff',
       cardAccent: this.props.cardAccent || '#2aa8e0',
       pillColor: this.props.pillColor || '#CDECF8',
@@ -980,7 +968,7 @@ class Component extends DCLogic {
         const ov = document.createElement('div');
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
         ov.onclick = function(e) { if(e.target===ov) ov.remove(); };
-        ov.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>✕</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cleanser-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:12px;color:#000;line-height:1.8"><b>??? 의 클렌저</b><br><span style=font-size:10px;color:#666>누군가 바닥에 놓고 간 것 같다.<br>앰플 같이 생겼네.</span></div></div></div>';
+        ov.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>✕</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cleanser-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? 의 클렌저</b><br><span style=font-size:12px;color:#444>누군가 바닥에 놓고 간 것 같다.<br>앰플 같이 생겼네.</span></div></div></div>';
         document.body.appendChild(ov);
       },
       showEgg2: () => {
@@ -989,16 +977,15 @@ class Component extends DCLogic {
         const ov2 = document.createElement('div');
         ov2.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
         ov2.onclick = function(e) { if(e.target===ov2) ov2.remove(); };
-        ov2.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>\u2715</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cream-tube-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:12px;color:#000;line-height:1.8"><b>??? \uc758 \ud06c\ub9bc</b><br><span style=font-size:10px;color:#666>\uac70\uc758 \ub2e4 \uc4f4 \uac83 \uac19\ub2e4.<br>\uaf39\uaf39 \ub20c\ub7ec \uc9e0 \uc790\uad6d\uc774 \uc788\ub2e4.</span></div></div></div>';
+        ov2.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>\u2715</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cream-tube-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? \uc758 \ud06c\ub9bc</b><br><span style=font-size:12px;color:#444>\uac70\uc758 \ub2e4 \uc4f4 \uac83 \uac19\ub2e4.<br>\uaf39\uaf39 \ub20c\ub7ec \uc9e0 \uc790\uad6d\uc774 \uc788\ub2e4.</span></div></div></div>';
         document.body.appendChild(ov2);
       },
-      jumpOpts: [{ id: 'title', label: '타이틀' }, { id: 'form', label: '카드 입력' }, { id: 'cert', label: '카드' }, { id: 'kit', label: '샘플 키트' }].concat(Object.keys(this.N).map(k => ({ id: k, label: k + ' · ' + ((this.N[k].text || '').replace(/\{\{\w+\}\}/g, '').replace(/\n/g, ' ').slice(0, 14)) }))),
+      jumpOpts: [{ id: 'title', label: '타이틀' }, { id: 'form', label: '카드 입력' }, { id: 'cert', label: '카드' }].concat(Object.keys(this.N).map(k => ({ id: k, label: k + ' · ' + ((this.N[k].text || '').replace(/\{\{\w+\}\}/g, '').replace(/\n/g, ' ').slice(0, 14)) }))),
       jumpTo: (e) => {
         const v = e.target.value;
         if (v === 'title') this.setState({ screen: 'title' });
         else if (v === 'form') this.setState({ screen: 'form', formStep: 0 });
         else if (v === 'cert') this.openCert();
-        else if (v === 'kit') this.setState({ screen: 'kit' });
         else this.go(v);
       },
       hasPhoto: !!s.photoSrc,
@@ -1030,11 +1017,11 @@ class Component extends DCLogic {
       formNext: () => { this.sfxClick(); this.setState({ formStep: s.formStep + 1 }); },
       makeCard: () => { this.sfxClick(); this.openCert(); },
       isCert: s.screen === 'cert',
-      isKit: s.screen === 'kit',
       startGame: () => { this.sfxClick(); this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
       restart: () => this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }),
-      goKit: () => { window.open('https://sooniko.co.kr', '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click');if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit'}); },
-      goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; if(window.gtag)gtag('event','bonus_stage'); },
+      goKit: () => { window.open('https://sooniko.kr/product/detail.html?product_no=22', '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click');if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit'}); },
+      openKakao: () => { this.sfxClick(); window.open('https://pf.kakao.com/_VcQVX', '_blank', 'noopener'); if(window.gtag)gtag('event','kakao_channel_click'); },
+      goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; this._fromCert = true; if(window.gtag)gtag('event','bonus_stage'); },
       soundLabel: s.muted ? '🔇 소리 끔' : '🔊 소리 켬',
       toggleSound: () => { const m = !s.muted; this._muted = m; if (m) { this.bgm().pause(); } else { this.playBgm(); } this.setState({ muted: m }); },
       stageCode: n.st || '',
@@ -1045,6 +1032,7 @@ class Component extends DCLogic {
       tap: () => { this.sfxClick(); if (s.shown < body.length) this.setState({ shown: body.length }); else if (n.auto && n.next && !n.ch) this.go(n.next); },
       endTitle: (n.end || '').replace(/\s*-\s*.*$/, ''),
       endSub: (() => { const m = /^[^-]*-\s*(.+)$/.exec(n.end || ''); return m ? '- ' + m[1].trim() + ' -' : ''; })(),
+      hasEndSub: !!(/^[^-]*-\s*(.+)$/.exec(n.end || '')),
       endTag: n.tag || '',
       endDone: !typing,
       retryLabel: n.retryLabel || '▶ 처음부터 다시하기',
@@ -1052,9 +1040,11 @@ class Component extends DCLogic {
       showNext: !typing && !n.ch && !n.auto,
       isAuto: !typing && !!n.auto,
       nextLabel: n.nextLabel || 'NEXT ▶',
-      hasHistory: (this._hist || []).length > 0,
+      hasHistory: (this._hist || []).length > 0 || (s.id === 'bonus1' && !!this._fromCert),
+      noHistory: !((this._hist || []).length > 0 || (s.id === 'bonus1' && !!this._fromCert)),
       goBack: () => {
         this.sfxClick();
+        if (s.id === 'bonus1' && this._fromCert) { this._fromCert = false; this.setState({ screen: 'cert' }); return; }
         const h = this._hist || [];
         if (!h.length) return;
         const back = h[h.length - 1];
@@ -1063,7 +1053,7 @@ class Component extends DCLogic {
         this.stopTrain();
         this.setState({ id: back, imgId: back, shown: (this.body(t, { name: s.name, stroke: s.stroke }) || '').length, cursor: 0, pick: '' });
       },
-      goNext: () => this.sfxClick() || (n.url ? window.open(n.url, '_blank', 'noopener') : (n.cert ? this.setState({ screen: 'form', formStep: 0 }) : (n.kit ? this.setState({ screen: 'kit' }) : this.go(n.next)))),
+      goNext: () => this.sfxClick() || (n.url ? window.open(n.url, '_blank', 'noopener') : (n.cert ? this.setState({ screen: 'form', formStep: 0 }) : this.go(n.next))),
       showChoices: !typing && !!n.ch,
       choices: (n.ch || []).map((c, i) => ({
         key: c.k, label: c.label,
@@ -1094,10 +1084,9 @@ class Component extends DCLogic {
     if (h && this.N[h]) this.go(h);
     else if (s0 === 'cert') this.openCert();
     else if (s0 === 'form') this.setState({ screen: 'form', formStep: 0 });
-    else if (s0 === 'kit') this.setState({ screen: 'kit' });
     this._t = setInterval(() => {
       const st = this.state, n = this.N[st.id];
-      if (!n || st.screen === 'title' || st.screen === 'cert' || st.screen === 'kit') return;
+      if (!n || st.screen === 'title' || st.screen === 'cert') return;
       const b = this.body(n, st);
       if (st.shown < b.length) { this._w = 0; const nx = Math.min(b.length, st.shown + 1.5); if (Math.floor(nx / 2) !== Math.floor(st.shown / 2)) this.sfxType(); this.setState({ shown: nx }); return; }
       if (n.auto && n.next && !n.ch && !n.end) { this._w = (this._w || 0) + 1; if (this._w >= 38) { this._w = 0; this.go(n.next); } }
