@@ -574,7 +574,7 @@ class Component extends DCLogic {
   TRAITS = ['수경에 김이 서리지 않는다.', '수경 자국이 절대 남지 않는다.', '아무리 수영해도 숨이 차지 않는다.', '배영 시 벽까지 남은 거리를 자동으로 감지한다.', '자유수영 시 한 레인을 혼자 쓰게 된다.', '뒤에서 발을 건드리는 사람이 사라진다.', '필요할 때마다 마른 수건이 소환된다.', '귀에 물이 절대 들어오지 않는다.', '항상 빈 드라이어가 하나 남아 있게 된다.', '내가 가는 시간에는 수영장이 한산해진다.', '수영 후 폭식해도 칼로리가 0이 된다.', '휴관일에도 수영장에 입장할 수 있게 된다.', '몇 바퀴째인지 항상 정확히 기억하게 된다.', '벽을 차면 평소보다 두 배 멀리 나가게 된다.', '입수하자마자 몸이 완전히 풀리게 된다.', '발과 종아리에 절대 쥐가 나지 않는다.', '수영 후에도 피부가 절대 당기지 않는다.', '수영 후에도 머릿결이 그대로 유지된다.', '젖은 수영복과 수건이 자동으로 건조된다.', '항상 원하는 위치의 사물함이 비어 있게 된다.', '한 번 들은 자세 교정을 바로 습득하게 된다.', '반대편 수영인과 손이 절대 부딪히지 않는다.', '옆 레인에서 물결의 영향을 받지 않는다.', '내가 가는 날에는 수영장 물이 맑아진다.', '수영이 끝난 뒤 몰려오는 식욕이 사라진다.'];
   fileRef = React.createRef();
   openCert() {
-    setTimeout(() => this.sfxTada(), 120); if(window.gtag)gtag('event','game_complete');if(window.fbq)fbq('track','Lead',{content_name:'game_complete'});
+    setTimeout(() => this.sfxTada(), 120); if(window.gtag)gtag('event','game_complete',{stroke:s.bestStroke,swim_type:s.swimType,trait:t,has_photo:!!s.photoSrc});
     const t = this.state.trait || this.TRAITS[Math.floor(Math.random() * this.TRAITS.length)];
     this.setState({ screen: 'cert', trait: t });
   }
@@ -929,7 +929,10 @@ class Component extends DCLogic {
     if (id === 's1c') setTimeout(() => this.sfxSparkle(), 60);
     if (id === 't1') { if (!this._train) setTimeout(() => this.sfxTrain(), 60); } else this.stopTrain();
     if (id === 't1b') setTimeout(() => this.sfxSad(), 80);
-    if (t && t.end) { setTimeout(() => this.sfxGameOver(), 120); if(window.gtag)gtag('event','bad_ending',{ending:id}); }
+    /* P0: stage_view — 모든 씬 진입 */
+    if(t && window.gtag){ const idx=Object.keys(this.N).indexOf(id); gtag('event','stage_view',{scene_id:id,stage_code:t.st||'',place:t.pl||'',step_index:idx}); }
+    /* P0+P1: bad_ending 보강 */
+    if (t && t.end) { setTimeout(() => this.sfxGameOver(), 120); this._badCount=(this._badCount||0)+1; if(window.gtag)gtag('event','bad_ending',{ending:id,ending_name:t.end,from_scene:prev,attempt_no:this._badCount}); }
     if (id === 's5b') this.sfxDolphin();
     const SFX = { s2a: 'sfxDoor', s2b: 'sfxSparkle', s3a: 'sfxSplash', s3a2: 'sfxSwim', s3b: 'sfxAlert', s3c: 'sfxSparkle', s4c: 'sfxLook', s4d: 'sfxSparkle', s4e: 'sfxSparkle', s4e3: 'sfxMist', s5a: 'sfxBell', s5b2: 'sfxDolphinTalk', s5c: 'sfxDolphinTalk' };
     if (SFX[id]) setTimeout(() => this[SFX[id]](), 80); this.setState({ id, imgId: (t && t.auto && !t.img) ? this.state.imgId : id, shown: 0, cursor: 0, pick: t.pick !== undefined ? t.pick : this.state.pick, screen: t.end ? 'ending' : 'play' }); }
@@ -958,7 +961,7 @@ class Component extends DCLogic {
       editingName: !s.saving,
       nameShown: s.name || '영자',
       saveLabel: s.saving ? '저장 중...' : '▶ 카드 저장하기',
-      saveCert: () => { this.sfxClick(); this.saveCert(); if(window.gtag)gtag('event','card_save');if(window.fbq)fbq('track','CompleteRegistration',{content_name:'card_save'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').completeRegistration({tag:'card_save'}); },
+      saveCert: () => { this.sfxClick(); this.saveCert(); if(window.gtag)gtag('event','card_save',{stroke:s.bestStroke,swim_type:s.swimType,trait:s.trait,has_photo:!!s.photoSrc});if(window.fbq)fbq('track','CompleteRegistration',{content_name:'card_save'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').completeRegistration({tag:'card_save'}); },
       remakeCard: () => { this.sfxClick(); this.setState({ screen: 'form', formStep: 0, trait: '' }); },
       isTitle: s.screen === 'title',
       isPlay: s.screen === 'play',
@@ -1010,7 +1013,7 @@ class Component extends DCLogic {
           const c = document.createElement('canvas');
           c.width = img.width; c.height = img.height;
           c.getContext('2d').drawImage(img, 0, 0);
-          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0 });
+          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0 }); if(window.gtag)gtag('event','card_photo_upload',{method:'random',profile_id:idx});
         };
         img.src = './\ud504\ub85c\ud544' + idx + '.png';
       },
@@ -1019,7 +1022,7 @@ class Component extends DCLogic {
         const fl = e.target.files && e.target.files[0];
         if (!fl) return;
         const rd = new FileReader();
-        rd.onload = () => this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0 });
+        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0 }); if(window.gtag)gtag('event','card_photo_upload',{method:'upload'}); };
         rd.readAsDataURL(fl);
       },
       zoomIn: () => this.setState(st => ({ photoZoom: Math.min(4, st.photoZoom + 0.15) })),
@@ -1037,13 +1040,13 @@ class Component extends DCLogic {
       formIsPhoto: s.formStep === 2,
       formShowNext: s.formStep < 2,
       formShowMake: s.formStep === 2,
-      formNext: () => { this.sfxClick(); this.setState({ formStep: s.formStep + 1 }); },
+      formNext: () => { this.sfxClick(); if(window.gtag)gtag('event','card_form_step',{step:s.formStep+1}); this.setState({ formStep: s.formStep + 1 }); },
       makeCard: () => { this.sfxClick(); this.openCert(); },
       isCert: s.screen === 'cert',
-      startGame: () => { this.sfxClick(); this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
+      startGame: () => { this.sfxClick(); this._startTime=Date.now(); this._badCount=0; this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
       restart: () => this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }),
-      goKit: () => { window.open('https://sooniko.kr/product/detail.html?product_no=22', '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click');if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit'}); },
-      openKakao: () => { this.sfxClick(); window.open('https://pf.kakao.com/_VcQVX', '_blank', 'noopener'); if(window.gtag)gtag('event','kakao_channel_click'); },
+      goKit: () => { const pl=s.id==='bonus1'?'bonus_stage':'header'; window.open('https://sooniko.kr/product/detail.html?product_no=22', '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:pl,scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:pl});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_'+pl}); },
+      openKakao: () => { this.sfxClick(); window.open('https://pf.kakao.com/_VcQVX', '_blank', 'noopener'); if(window.gtag)gtag('event','kakao_channel_click');if(window.fbq)fbq('track','Contact',{content_name:'kakao_channel'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').signUp({tag:'kakao_channel'}); },
       goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; this._fromCert = true; if(window.gtag)gtag('event','bonus_stage'); },
       soundLabel: s.muted ? '🔇 소리 끔' : '🔊 소리 켬',
       toggleSound: () => { const m = !s.muted; this._muted = m; if (m) { this.bgm().pause(); } else { this.playBgm(); } this.setState({ muted: m }); },
@@ -1059,7 +1062,7 @@ class Component extends DCLogic {
       endTag: n.tag || '',
       endDone: !typing,
       retryLabel: n.retryLabel || '▶ 처음부터 다시하기',
-      endRetry: () => this.sfxClick() || (n.backTo ? this.go(n.backTo) : this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' })),
+      endRetry: () => { this.sfxClick(); if(window.gtag)gtag('event','retry_click',{from_ending:s.id,attempt_no:this._badCount||0}); if(n.backTo) this.go(n.backTo); else this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }); },
       showNext: !typing && !n.ch && !n.auto,
       isAuto: !typing && !!n.auto,
       nextLabel: n.nextLabel || 'NEXT ▶',
@@ -1076,7 +1079,19 @@ class Component extends DCLogic {
         this.stopTrain();
         this.setState({ id: back, imgId: back, shown: (this.body(t, { name: s.name, stroke: s.stroke }) || '').length, cursor: 0, pick: '' });
       },
-      goNext: () => this.sfxClick() || (n.url ? window.open(n.url, '_blank', 'noopener') : (n.cert ? this.setState({ screen: 'form', formStep: 0 }) : this.go(n.next))),
+      goNext: () => {
+        this.sfxClick();
+        if(n.url) { window.open(n.url, '_blank', 'noopener'); }
+        else if(n.cert) {
+          /* P0: story_clear — 스토리 완주 지점 */
+          const dur=this._startTime?Math.round((Date.now()-this._startTime)/1000):0;
+          if(window.gtag)gtag('event','story_clear',{duration_sec:dur,bad_ending_count:this._badCount||0});
+          if(window.fbq)fbq('track','Lead',{content_name:'story_clear'});
+          if(window.kakaoPixel)kakaoPixel('2046936635173982010').participation({tag:'story_clear'});
+          this.setState({ screen: 'form', formStep: 0 });
+        }
+        else { this.go(n.next); }
+      },
       showChoices: !typing && !!n.ch,
       choices: (n.ch || []).map((c, i) => ({
         key: c.k, label: c.label,
@@ -1090,6 +1105,8 @@ class Component extends DCLogic {
             if (j === i) { el.style.background = '#000'; el.style.color = '#CDECF8'; }
             else { el.style.opacity = '0.15'; el.style.pointerEvents = 'none'; }
           });
+          /* P0: choice_made */
+          if(window.gtag)gtag('event','choice_made',{scene_id:s.id,choice_key:c.k,choice_label:c.label,choice_to:c.to,is_fatal:!!this.N[c.to]?.end});
           setTimeout(() => this.go(c.to), 500);
         }
       })),
