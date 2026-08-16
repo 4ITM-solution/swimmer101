@@ -188,7 +188,7 @@ input { font-family:inherit; }
               <input type="file" accept="image/*" onChange="{{ pickPhoto }}" style="display:none;" ref="{{ fileRef }}">
               <button onClick="{{ openPicker }}" style="padding:9px 12px; background:#CDECF8; border:3px solid #000; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">사진 업로드</button>
               <button onClick="{{ randomProfile }}" style="padding:9px 12px; background:#fff; border:3px solid #000; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">랜덤 뽑기</button>
-              <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
+              <sc-if value="{{ showPhotoEdit }}" hint-placeholder-val="{{ false }}">
                 <div style="display:grid; gap:6px; border:3px solid #000; background:#fff; padding:8px;">
                   <span style="font-size:12px; color:#000; letter-spacing:0.08em;">EDIT</span>
                   <div style="display:flex; gap:6px;">
@@ -575,8 +575,9 @@ class Component extends DCLogic {
   TRAITS = ['수경에 김이 서리지 않는다.', '수경 자국이 절대 남지 않는다.', '아무리 수영해도 숨이 차지 않는다.', '배영 시 벽까지 남은 거리를 자동으로 감지한다.', '자유수영 시 한 레인을 혼자 쓰게 된다.', '뒤에서 발을 건드리는 사람이 사라진다.', '필요할 때마다 마른 수건이 소환된다.', '귀에 물이 절대 들어오지 않는다.', '항상 빈 드라이어가 하나 남아 있게 된다.', '내가 가는 시간에는 수영장이 한산해진다.', '수영 후 폭식해도 칼로리가 0이 된다.', '휴관일에도 수영장에 입장할 수 있게 된다.', '몇 바퀴째인지 항상 정확히 기억하게 된다.', '벽을 차면 평소보다 두 배 멀리 나가게 된다.', '입수하자마자 몸이 완전히 풀리게 된다.', '발과 종아리에 절대 쥐가 나지 않는다.', '수영 후에도 피부가 절대 당기지 않는다.', '수영 후에도 머릿결이 그대로 유지된다.', '젖은 수영복과 수건이 자동으로 건조된다.', '항상 원하는 위치의 사물함이 비어 있게 된다.', '한 번 들은 자세 교정을 바로 습득하게 된다.', '반대편 수영인과 손이 절대 부딪히지 않는다.', '옆 레인에서 물결의 영향을 받지 않는다.', '내가 가는 날에는 수영장 물이 맑아진다.', '수영이 끝난 뒤 몰려오는 식욕이 사라진다.'];
   fileRef = React.createRef();
   openCert() {
-    setTimeout(() => this.sfxTada(), 120); if(window.gtag)gtag('event','game_complete',{stroke:s.bestStroke,swim_type:s.swimType,trait:t,has_photo:!!s.photoSrc});
+    setTimeout(() => this.sfxTada(), 120);
     const t = this.state.trait || this.TRAITS[Math.floor(Math.random() * this.TRAITS.length)];
+    if(window.gtag)gtag('event','game_complete',{stroke:this.state.bestStroke,swim_type:this.state.swimType,trait:t,has_photo:!!this.state.photoSrc});
     this.setState({ screen: 'cert', trait: t });
   }
   optStyle(on) {
@@ -995,6 +996,7 @@ class Component extends DCLogic {
         else this.go(v);
       },
       hasPhoto: !!s.photoSrc,
+      showPhotoEdit: !!s.photoSrc && !s.isRandomPhoto,
       photoImg: s.photoSrc ? React.createElement('img', { src: s.photoSrc, alt: '사진', style: { position: 'absolute', left: '50%', top: '50%', width: '100%', height: '100%', objectFit: 'cover', transform: 'translate(-50%,-50%) translate(' + s.photoX + '%,' + s.photoY + '%) scale(' + s.photoZoom + ')' } }) : null,
       fileRef: this.fileRef,
       openInstagram: () => { this.sfxClick(); window.open('https://www.instagram.com/sooniko_swim/', '_blank', 'noopener'); if(window.gtag)gtag('event','instagram_click'); },
@@ -1015,7 +1017,7 @@ class Component extends DCLogic {
           const c = document.createElement('canvas');
           c.width = img.width; c.height = img.height;
           c.getContext('2d').drawImage(img, 0, 0);
-          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0 }); if(window.gtag)gtag('event','card_photo_upload',{method:'random',profile_id:idx});
+          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: true }); if(window.gtag)gtag('event','card_photo_upload',{method:'random',profile_id:idx});
         };
         img.src = './\ud504\ub85c\ud544' + idx + '.png';
       },
@@ -1024,7 +1026,7 @@ class Component extends DCLogic {
         const fl = e.target.files && e.target.files[0];
         if (!fl) return;
         const rd = new FileReader();
-        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0 }); if(window.gtag)gtag('event','card_photo_upload',{method:'upload'}); };
+        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: false }); if(window.gtag)gtag('event','card_photo_upload',{method:'upload'}); };
         rd.readAsDataURL(fl);
       },
       zoomIn: () => this.setState(st => ({ photoZoom: Math.min(4, st.photoZoom + 0.15) })),
