@@ -581,7 +581,7 @@ class Component extends DCLogic {
     this.setState({ screen: 'cert', trait: t });
   }
   optStyle(on) {
-    return 'padding:9px 12px; font-size:16px; letter-spacing:0.02em; border:3px solid #000; cursor:pointer; white-space:nowrap; ' + (on ? 'background:#000; color:#CDECF8;' : 'background:#fff; color:#000;');
+    return 'padding:9px 12px; font-size:16px; letter-spacing:0.02em; border:3px solid #000; cursor:pointer; box-sizing:border-box; overflow:hidden; text-overflow:ellipsis; ' + (on ? 'background:#000; color:#CDECF8;' : 'background:#fff; color:#000;');
   }
   bgm() {
     if (!window.__swimBgm) {
