@@ -125,7 +125,7 @@ input { font-family:inherit; }
       <div style="border:3px solid #000; background:#000; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:1px;">
         <span style="font-size:14px; color:#CDECF8; white-space:nowrap; letter-spacing:0.08em;">STAGE 06</span>
         <span style="flex:1 1 auto; min-width:0; font-size:14px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:0.08em;">SWIMMER CARD</span>
-        <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button>
+        <button onClick="{{ shareGame }}" aria-label="공유하기" title="공유하기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./공유하기.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; border-color:#CDECF8;"></button><a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./인스타.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; border-color:#CDECF8;"></a>
       </div>
       
       <div data-cert-card="1" style="animation:cardFlip 1.1s cubic-bezier(0.22,0.9,0.3,1) both; backface-visibility:hidden; position: relative; width: 100%; max-width: 368px; aspect-ratio: 1064/714; margin: 12px auto 0; background: url('./swimmer-card-bg.png') center/100% 100% no-repeat">
@@ -186,6 +186,7 @@ input { font-family:inherit; }
             <div style="display:grid; gap:8px; align-content:start;">
               <input type="file" accept="image/*" onChange="{{ pickPhoto }}" style="display:none;" ref="{{ fileRef }}">
               <button onClick="{{ openPicker }}" style="padding:9px 12px; background:#CDECF8; border:3px solid #000; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">사진 업로드</button>
+              <button onClick="{{ randomProfile }}" style="padding:9px 12px; background:#fff; border:3px solid #000; font-size:14px; color:#000; cursor:pointer; white-space:nowrap;" style-hover="background:#000; color:#CDECF8;">🎲 운에 맡기기</button>
               <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
                 <div style="display:grid; gap:6px; border:3px solid #000; background:#fff; padding:8px;">
                   <span style="font-size:12px; color:#000; letter-spacing:0.08em;">EDIT</span>
@@ -226,7 +227,7 @@ input { font-family:inherit; }
         <span style="font-size:14px; color:#CDECF8; white-space:nowrap; letter-spacing:0.08em;">{{ stageCode }}</span>
         <span style="flex:1 1 auto; min-width:0; font-size:12px; color:#CDECF8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:0.04em;">{{ place }}</span>
         <span style="display:flex; gap:1px; flex:0 0 auto; align-items:center;">
-        <a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; margin-right:2px; background:#CDECF8 url('./ig-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./ig-glyph.png'); border-color:#CDECF8;"></a><button onClick="{{ goKit }}" aria-label="샘플 키트 받기" title="샘플 키트 받기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./gift-glyph-hover.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; background-image:url('./gift-glyph.png'); border-color:#CDECF8;"></button></span>
+        <button onClick="{{ shareGame }}" aria-label="공유하기" title="공유하기" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./공유하기.png') center/18px 18px no-repeat; border:2px solid #CDECF8; padding:0; cursor:pointer; image-rendering:pixelated;" style-hover="background-color:#000; border-color:#CDECF8;"></button><a href="https://www.instagram.com/sooniko_swim/" target="_blank" rel="noopener" aria-label="인스타그램" style="flex:0 0 auto; width:28px; height:28px; box-sizing:border-box; background:#CDECF8 url('./인스타.png') center/18px 18px no-repeat; border:2px solid #CDECF8; image-rendering:pixelated;" style-hover="background-color:#000; border-color:#CDECF8;"></a></span>
       </div>
 
       <div style="border: 3px solid #000; border-top: none; aspect-ratio: 752 / 500; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #CDECF8">
@@ -262,9 +263,9 @@ input { font-family:inherit; }
         </sc-if>
         <sc-if value="{{ img_s2a }}" hint-placeholder-val="{{ false }}">
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
-            <img src="./locker-room-people-removed-752x500.png" alt="탈의실" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block; image-rendering: pixelated;">
+            <img src="./빈탈의실.png" alt="탈의실" style="width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: pixelated;">
             <div onClick="{{ showEgg }}" style="position:absolute; left:50%; bottom:18%; transform:translateX(-50%); width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite;">
-              <img src="./cleanser-bench-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
+              <img src="./이스터에그상자.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
             </div>
           </div>
         </sc-if>
@@ -307,7 +308,7 @@ input { font-family:inherit; }
           <div style="width:100%; height:100%; background:#CDECF8; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
             <img src="./gif--10-msn8bjp7-gmoe.gif" alt="gif--10" width="752" height="500" style="width: 100%; height: 100%; object-fit: contain; display: block">
             <div onClick="{{ showEgg2 }}" style="position:absolute; left:42%; top:52%; width:28px; height:28px; cursor:pointer; z-index:10; animation:eggFloat 3s ease-in-out infinite 1.5s;">
-              <img src="./cream-tube-easter-64x64.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
+              <img src="./이스터에그상자.png" alt="" style="width:100%; height:100%; object-fit:contain; image-rendering:pixelated;">
             </div>
           </div>
         </sc-if>
@@ -969,7 +970,7 @@ class Component extends DCLogic {
         const ov = document.createElement('div');
         ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
         ov.onclick = function(e) { if(e.target===ov) ov.remove(); };
-        ov.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>✕</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cleanser-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? 의 클렌저</b><br><span style=font-size:12px;color:#444>누군가 바닥에 놓고 간 것 같다.<br>앰플 같이 생겼네.</span></div></div></div>';
+        ov.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>✕</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./클렌저프사.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? 의 클렌저</b><br><span style=font-size:12px;color:#444>누군가 바닥에 놓고 간 것 같다.<br>앰플 같이 생겼네.</span></div></div></div>';
         document.body.appendChild(ov);
       },
       showEgg2: () => {
@@ -978,7 +979,7 @@ class Component extends DCLogic {
         const ov2 = document.createElement('div');
         ov2.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:memoryFade .2s ease';
         ov2.onclick = function(e) { if(e.target===ov2) ov2.remove(); };
-        ov2.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>\u2715</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./cream-tube-profile-96x128.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? \uc758 \ud06c\ub9bc</b><br><span style=font-size:12px;color:#444>\uac70\uc758 \ub2e4 \uc4f4 \uac83 \uac19\ub2e4.<br>\uafb9\uafb9 \ub20c\ub7ec \uc9e0 \uc790\uad6d\uc774 \uc788\ub2e4.</span></div></div></div>';
+        ov2.innerHTML = '<div style="background:#CDECF8;border:4px solid #000;width:240px;font-family:DungGeunMo,Galmuri11,monospace;"><div style="background:#000;color:#CDECF8;padding:5px 8px;font-size:12px;display:flex;justify-content:space-between"><span>ITEM</span><span style=cursor:pointer onclick=this.closest(\x27[style*=fixed]\x27).remove()>\u2715</span></div><div style="padding:10px;display:flex;gap:10px"><img src="./크림프사.png" alt="" style="width:40px;height:56px;object-fit:contain;image-rendering:pixelated;border:2px solid #000;border-radius:2px;flex-shrink:0"><div style="font-size:14px;color:#000;line-height:1.6"><b>??? \uc758 \ud06c\ub9bc</b><br><span style=font-size:12px;color:#444>\uac70\uc758 \ub2e4 \uc4f4 \uac83 \uac19\ub2e4.<br>\uafb9\uafb9 \ub20c\ub7ec \uc9e0 \uc790\uad6d\uc774 \uc788\ub2e4.</span></div></div></div>';
         document.body.appendChild(ov2);
       },
       jumpOpts: [{ id: 'title', label: '타이틀' }, { id: 'form', label: '카드 입력' }, { id: 'cert', label: '카드' }].concat(Object.keys(this.N).map(k => ({ id: k, label: k + ' · ' + ((this.N[k].text || '').replace(/\{\{\w+\}\}/g, '').replace(/\n/g, ' ').slice(0, 14)) }))),
@@ -992,6 +993,27 @@ class Component extends DCLogic {
       hasPhoto: !!s.photoSrc,
       photoImg: s.photoSrc ? React.createElement('img', { src: s.photoSrc, alt: '사진', style: { position: 'absolute', left: '50%', top: '50%', width: '100%', height: '100%', objectFit: 'cover', transform: 'translate(-50%,-50%) translate(' + s.photoX + '%,' + s.photoY + '%) scale(' + s.photoZoom + ')' } }) : null,
       fileRef: this.fileRef,
+      shareGame: () => {
+        this.sfxClick();
+        const url = 'https://swimmer101.sooniko.kr';
+        const title = 'SWIMMER 101 — 오늘도 수영장';
+        const text = '수영을 좋아하는 마음도 자격이 된다';
+        if (navigator.share) { navigator.share({ title, text, url }).catch(()=>{}); }
+        else { navigator.clipboard.writeText(url).then(()=>alert('\ub9c1\ud06c\uac00 \ubcf5\uc0ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4!')).catch(()=>{}); }
+      },
+      randomProfile: () => {
+        this.sfxClick();
+        const idx = Math.floor(Math.random() * 6) + 1;
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          const c = document.createElement('canvas');
+          c.width = img.width; c.height = img.height;
+          c.getContext('2d').drawImage(img, 0, 0);
+          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0 });
+        };
+        img.src = './\ud504\ub85c\ud544' + idx + '.png';
+      },
       openPicker: () => { this.sfxClick(); if (this.fileRef.current) this.fileRef.current.click(); },
       pickPhoto: (e) => {
         const fl = e.target.files && e.target.files[0];
