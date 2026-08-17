@@ -669,18 +669,29 @@ class Component extends DCLogic {
     await new Promise(r => setTimeout(r, 60));
     await new Promise(r => setTimeout(r, 120));
     try {
-      const shot = await h2c(el, { backgroundColor: null, scale: Math.max(6, Math.ceil(840 / el.offsetWidth) + 2), useCORS: true, logging: false });
+      const _loadImg = s => new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = s; });
+      // Step 1: hide bg so html2canvas captures text/photo overlays only
+      const origBg = el.style.background;
+      el.style.background = 'transparent';
+      await new Promise(r => setTimeout(r, 30));
+      const textShot = await h2c(el, { backgroundColor: null, scale: Math.max(6, Math.ceil(840 / el.offsetWidth) + 2), useCORS: true, logging: false });
+      el.style.background = origBg;
+      // Step 2: build 9:16 canvas
       const W = 1080, H = 1920, c = document.createElement('canvas');
       c.width = W; c.height = H;
       const ctx = c.getContext('2d');
       ctx.imageSmoothingEnabled = false;
       ctx.fillStyle = '#CDECF8'; ctx.fillRect(0, 0, W, H);
-      const frame = await new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = './share-frame.png'; });
+      const frame = await _loadImg('./share-frame.png');
       if (frame) ctx.drawImage(frame, 0, 0, W, H);
       const BX = 118, BY = 662, BW = 844, BH = 480;
-      const k = Math.min(BW / shot.width, BH / shot.height);
-      const w = shot.width * k, h = shot.height * k;
-      ctx.drawImage(shot, BX + (BW - w) / 2, BY + (BH - h) / 2, w, h);
+      // Step 3: draw card bg directly from source (one clean nearest-neighbor scale)
+      const cardBg = await _loadImg('./swimmer-card-bg.png');
+      if (cardBg) { const bk = Math.min(BW / cardBg.naturalWidth, BH / cardBg.naturalHeight); const bw = cardBg.naturalWidth * bk, bh = cardBg.naturalHeight * bk; ctx.drawImage(cardBg, BX + (BW - bw) / 2, BY + (BH - bh) / 2, bw, bh); }
+      // Step 4: overlay text/photo capture (transparent bg)
+      const k = Math.min(BW / textShot.width, BH / textShot.height);
+      const w = textShot.width * k, h = textShot.height * k;
+      ctx.drawImage(textShot, BX + (BW - w) / 2, BY + (BH - h) / 2, w, h);
       const fileName = 'SWIMMER101_' + (this.state.name || '영자') + '_자격증.png';
       // Mobile: use Web Share API for gallery save, fallback to download
       if (navigator.share && navigator.canShare) {
