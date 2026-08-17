@@ -130,10 +130,10 @@ input { font-family:inherit; }
       </div>
       
       <div data-cert-card="1" style="animation:cardFlip 1.1s cubic-bezier(0.22,0.9,0.3,1) both; backface-visibility:hidden; position: relative; width: 100%; max-width: 368px; aspect-ratio: 1064/714; margin: 12px auto 0; background: url('./swimmer-card-bg.png') center/100% 100% no-repeat">
-        <span style="position: absolute; left: 19%; top: 30.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ nameShown }}</span>
-        <span style="position: absolute; left: 19%; top: 42.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ swimType }}</span>
-        <span style="position: absolute; left: 19%; top: 54.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ bestStroke }}</span>
-        <span style="position: absolute; left: 5.3%; top: 82%; width: 78%; font-family: 'Galmuri11',monospace; font-size: clamp(8px,2.2vw,10px); line-height: 1.4; color: #1b7fa8; word-break: keep-all">{{ traitText }}</span>
+        <span style="position: absolute; left: 19%; top: 31.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ nameShown }}</span>
+        <span style="position: absolute; left: 19%; top: 43.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ swimType }}</span>
+        <span style="position: absolute; left: 19%; top: 55.5%; max-width: 45%; overflow: hidden; font-family: 'Galmuri11',monospace; font-size: clamp(11px,3.5vw,15px); color: #1b7fa8; white-space: nowrap">{{ bestStroke }}</span>
+        <span style="position: absolute; left: 5.3%; top: 83%; width: 78%; font-family: 'Galmuri11',monospace; font-size: clamp(8px,2.2vw,10px); line-height: 1.4; color: #1b7fa8; word-break: keep-all">{{ traitText }}</span>
         <div style="position:absolute; left:67.4%; top:33.5%; width:27.4%; height:49.8%; box-sizing:border-box; border:2px solid #000; overflow:hidden; background:#d9d9d9;">
           <sc-if value="{{ hasPhoto }}" hint-placeholder-val="{{ false }}">
             {{ photoImg }}
@@ -673,8 +673,7 @@ class Component extends DCLogic {
       const W = 1080, H = 1920, c = document.createElement('canvas');
       c.width = W; c.height = H;
       const ctx = c.getContext('2d');
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
+      ctx.imageSmoothingEnabled = false;
       ctx.fillStyle = '#CDECF8'; ctx.fillRect(0, 0, W, H);
       const frame = await new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = './share-frame.png'; });
       if (frame) ctx.drawImage(frame, 0, 0, W, H);
