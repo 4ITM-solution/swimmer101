@@ -26,6 +26,20 @@ fbq('track', 'PageView');
 <!-- Kakao Pixel -->
 <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
 <script type="text/javascript">kakaoPixel('2046936635173982010').pageView();</script>
+<!-- UTM forwarding: capture entry UTM params and forward to product page -->
+<script>
+(function(){
+  var u=new URLSearchParams(window.location.search);
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  keys.forEach(function(k){var v=u.get(k);if(v)sessionStorage.setItem('_sw101_'+k,v);});
+  window._sw101utm=function(url){
+    var p=[];
+    keys.forEach(function(k){var v=sessionStorage.getItem('_sw101_'+k);if(v)p.push(k+'='+encodeURIComponent(v));});
+    if(!p.length)return url;
+    return url+(url.indexOf('?')>-1?'&':'?')+p.join('&');
+  };
+})();
+</script>
 </head>
 <body>
 <x-dc>
@@ -1059,7 +1073,7 @@ class Component extends DCLogic {
       isCert: s.screen === 'cert',
       startGame: () => { this.sfxClick(); this._startTime=Date.now(); this._badCount=0; this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
       restart: () => this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }),
-      goKit: () => { const pl=s.id==='bonus1'?'bonus_stage':'header'; window.open('https://sooniko.kr/product/detail.html?product_no=22&from=swimmer101&name=' + encodeURIComponent(s.name || '영자'), '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:pl,scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:pl});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_'+pl}); },
+      goKit: () => { const pl=s.id==='bonus1'?'bonus_stage':'header'; window.open((window._sw101utm||function(x){return x})('https://sooniko.kr/product/detail.html?product_no=22&from=swimmer101&name=' + encodeURIComponent(s.name || '영자')), '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:pl,scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:pl});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_'+pl}); },
       openKakao: () => { this.sfxClick(); window.open('https://pf.kakao.com/_VcQVX', '_blank', 'noopener'); if(window.gtag)gtag('event','kakao_channel_click');if(window.fbq)fbq('track','Contact',{content_name:'kakao_channel'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').signUp({tag:'kakao_channel'}); },
       goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; this._fromCert = true; if(window.gtag)gtag('event','bonus_stage'); },
       soundLabel: s.muted ? '🔇 소리 끔' : '🔊 소리 켬',
@@ -1096,7 +1110,7 @@ class Component extends DCLogic {
       },
       goNext: () => {
         this.sfxClick();
-        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; window.open(_u, '_blank', 'noopener'); }
+        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; window.open((window._sw101utm||function(x){return x})(_u), '_blank', 'noopener'); }
         else if(n.cert) {
           /* P0: story_clear — 스토리 완주 지점 */
           const dur=this._startTime?Math.round((Date.now()-this._startTime)/1000):0;
