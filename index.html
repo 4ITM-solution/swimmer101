@@ -32,9 +32,12 @@ fbq('track', 'PageView');
   var u=new URLSearchParams(window.location.search);
   var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
   keys.forEach(function(k){var v=u.get(k);if(v)sessionStorage.setItem('_sw101_'+k,v);});
+  var defaults={utm_source:'swimmer101',utm_medium:'game',utm_campaign:'swimmer101'};
   window._sw101utm=function(url){
     var p=[];
-    keys.forEach(function(k){var v=sessionStorage.getItem('_sw101_'+k);if(v)p.push(k+'='+encodeURIComponent(v));});
+    var hasAny=false;
+    keys.forEach(function(k){var v=sessionStorage.getItem('_sw101_'+k);if(v){p.push(k+'='+encodeURIComponent(v));hasAny=true;}});
+    if(!hasAny){Object.keys(defaults).forEach(function(k){p.push(k+'='+encodeURIComponent(defaults[k]));});}
     if(!p.length)return url;
     return url+(url.indexOf('?')>-1?'&':'?')+p.join('&');
   };
