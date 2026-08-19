@@ -594,7 +594,8 @@ class Component extends DCLogic {
   openCert() {
     setTimeout(() => this.sfxTada(), 120);
     const t = this.state.trait || this.TRAITS[Math.floor(Math.random() * this.TRAITS.length)];
-    if(window.gtag)gtag('event','game_complete',{stroke:this.state.bestStroke,swim_type:this.state.swimType,trait:t,has_photo:!!this.state.photoSrc});
+    const dur=this._startTime?Math.round((Date.now()-this._startTime)/1000):0;
+    if(window.gtag)gtag('event','game_complete',{duration_sec:dur,stroke:this.state.bestStroke,swim_type:this.state.swimType,trait:t,has_photo:!!this.state.photoSrc});
     this.setState({ screen: 'cert', trait: t });
   }
   optStyle(on) {
@@ -959,9 +960,9 @@ class Component extends DCLogic {
     if (id === 't1') { if (!this._train) setTimeout(() => this.sfxTrain(), 60); } else this.stopTrain();
     if (id === 't1b') setTimeout(() => this.sfxSad(), 80);
     /* P0: stage_view — 모든 씬 진입 */
-    if(t && window.gtag){ const idx=Object.keys(this.N).indexOf(id); gtag('event','stage_view',{scene_id:id,stage_code:t.st||'',place:t.pl||'',step_index:idx}); }
+    if(t && window.gtag){ const idx=Object.keys(this.N).indexOf(id); const prevNode=this.N[prev]||{}; gtag('event','stage_view',{scene_id:id,stage_code:t.st||(t.end?'BAD END':'UNSPECIFIED'),place:t.pl||prevNode.pl||'UNSPECIFIED',step_index:idx}); }
     /* P0+P1: bad_ending 보강 */
-    if (t && t.end) { setTimeout(() => this.sfxGameOver(), 120); this._badCount=(this._badCount||0)+1; if(window.gtag)gtag('event','bad_ending',{ending:id,ending_name:t.end,from_scene:prev,attempt_no:this._badCount}); }
+    if (t && t.end) { setTimeout(() => this.sfxGameOver(), 120); this._badCount=(this._badCount||0)+1; const fromChoice=((this.N[prev]&&this.N[prev].ch||[]).find(c=>c.to===id)||{}).k||'unknown'; if(window.gtag)gtag('event','bad_ending',{ending:id,ending_name:t.end,from_scene:prev,from_choice:fromChoice,attempt_no:this._badCount}); }
     if (id === 's5b') this.sfxDolphin();
     const SFX = { s2a: 'sfxDoor', s2b: 'sfxSparkle', s3a: 'sfxSplash', s3a2: 'sfxSwim', s3b: 'sfxAlert', s3c: 'sfxSparkle', s4c: 'sfxLook', s4d: 'sfxSparkle', s4e: 'sfxSparkle', s4e3: 'sfxMist', s5a: 'sfxBell', s5b2: 'sfxDolphinTalk', s5c: 'sfxDolphinTalk' };
     if (SFX[id]) setTimeout(() => this[SFX[id]](), 80); this.setState({ id, imgId: (t && t.auto && !t.img) ? this.state.imgId : id, shown: 0, cursor: 0, pick: t.pick !== undefined ? t.pick : this.state.pick, screen: t.end ? 'ending' : 'play' }); }
@@ -1044,7 +1045,7 @@ class Component extends DCLogic {
           const c = document.createElement('canvas');
           c.width = img.width; c.height = img.height;
           c.getContext('2d').drawImage(img, 0, 0);
-          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: true }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{method:'random'});}
+          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: true }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{success:true,method:'random',profile_id:idx});}
         };
         img.src = './\ud504\ub85c\ud544' + idx + '.png';
       },
@@ -1053,7 +1054,7 @@ class Component extends DCLogic {
         const fl = e.target.files && e.target.files[0];
         if (!fl) return;
         const rd = new FileReader();
-        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: false }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{method:'upload'});} };
+        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: false }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{success:true,method:'upload'});} };
         rd.readAsDataURL(fl);
       },
       zoomIn: () => this.setState(st => ({ photoZoom: Math.min(4, st.photoZoom + 0.15) })),
@@ -1076,7 +1077,7 @@ class Component extends DCLogic {
       isCert: s.screen === 'cert',
       startGame: () => { this.sfxClick(); this._startTime=Date.now(); this._badCount=0; this.go('s1a'); if(window.gtag)gtag('event','game_start');if(window.fbq)fbq('track','ViewContent',{content_name:'game_start'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').viewContent({tag:'game_start'}); },
       restart: () => this.setState({ screen: 'title', id: 's1a', imgId: 's1a', shown: 0, cursor: 0, pick: '', trait: '' }),
-      goKit: () => { const pl=s.id==='bonus1'?'bonus_stage':'header'; window.open((window._sw101utm||function(x){return x})('https://sooniko.kr/product/detail.html?product_no=22&from=swimmer101&name=' + encodeURIComponent(s.name || '영자')), '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:pl,scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:pl});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_'+pl}); },
+      goKit: () => { const pl=s.id==='bonus1'?'bonus_stage':'header'; const url=(window._sw101utm||function(x){return x})('https://sooniko.kr/product/detail.html?product_no=22&from=swimmer101&name=' + encodeURIComponent(s.name || '영자')); try{if(window.gtag)gtag('event','starter_kit_click',{placement:pl,scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:pl});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_'+pl});}catch(e){} window.open(url, '_blank', 'noopener'); },
       openKakao: () => { this.sfxClick(); window.open('https://pf.kakao.com/_VcQVX', '_blank', 'noopener'); if(window.gtag)gtag('event','kakao_channel_click');if(window.fbq)fbq('track','Contact',{content_name:'kakao_channel'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').signUp({tag:'kakao_channel'}); },
       goBonus: () => { this.sfxClick(); this.go('bonus1'); this._hist = []; this._fromCert = true; if(window.gtag)gtag('event','bonus_stage'); },
       soundLabel: s.muted ? '🔇 소리 끔' : '🔊 소리 켬',
@@ -1113,7 +1114,7 @@ class Component extends DCLogic {
       },
       goNext: () => {
         this.sfxClick();
-        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; window.open((window._sw101utm||function(x){return x})(_u), '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:'bonus_stage',scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:'bonus_stage'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_bonus_stage'}); }
+        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; var _kitUrl=(window._sw101utm||function(x){return x})(_u); try{if(window.gtag)gtag('event','starter_kit_click',{placement:'bonus_stage',scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:'bonus_stage'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_bonus_stage'});}catch(e){} window.open(_kitUrl, '_blank', 'noopener'); }
         else if(n.cert) {
           /* P0: story_clear — 스토리 완주 지점 */
           const dur=this._startTime?Math.round((Date.now()-this._startTime)/1000):0;
