@@ -1044,7 +1044,7 @@ class Component extends DCLogic {
           const c = document.createElement('canvas');
           c.width = img.width; c.height = img.height;
           c.getContext('2d').drawImage(img, 0, 0);
-          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: true }); if(window.gtag)gtag('event','card_photo_upload',{method:'random',profile_id:idx});
+          this.setState({ photoSrc: c.toDataURL('image/png'), photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: true }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{method:'random'});}
         };
         img.src = './\ud504\ub85c\ud544' + idx + '.png';
       },
@@ -1053,7 +1053,7 @@ class Component extends DCLogic {
         const fl = e.target.files && e.target.files[0];
         if (!fl) return;
         const rd = new FileReader();
-        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: false }); if(window.gtag)gtag('event','card_photo_upload',{method:'upload'}); };
+        rd.onload = () => { this.setState({ photoSrc: rd.result, photoZoom: 1, photoX: 0, photoY: 0, isRandomPhoto: false }); if(window.gtag&&!this._photoTracked){this._photoTracked=true;gtag('event','card_photo_upload',{method:'upload'});} };
         rd.readAsDataURL(fl);
       },
       zoomIn: () => this.setState(st => ({ photoZoom: Math.min(4, st.photoZoom + 0.15) })),
@@ -1113,7 +1113,7 @@ class Component extends DCLogic {
       },
       goNext: () => {
         this.sfxClick();
-        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; window.open((window._sw101utm||function(x){return x})(_u), '_blank', 'noopener'); }
+        if(n.url) { var _u = n.url.includes('sooniko.kr') ? n.url + '&from=swimmer101&name=' + encodeURIComponent(s.name || '영자') : n.url; window.open((window._sw101utm||function(x){return x})(_u), '_blank', 'noopener'); if(window.gtag)gtag('event','starter_kit_click',{placement:'bonus_stage',scene_id:s.id});if(window.fbq)fbq('track','InitiateCheckout',{content_name:'starter_kit',content_category:'bonus_stage'});if(window.kakaoPixel)kakaoPixel('2046936635173982010').addToCart({tag:'starter_kit_bonus_stage'}); }
         else if(n.cert) {
           /* P0: story_clear — 스토리 완주 지점 */
           const dur=this._startTime?Math.round((Date.now()-this._startTime)/1000):0;
