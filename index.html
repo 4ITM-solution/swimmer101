@@ -1033,6 +1033,7 @@ class Component extends DCLogic {
         const url = 'https://swimmer101.sooniko.kr';
         const title = 'SWIMMER 101 — 오늘도 수영장';
         const text = '수영을 좋아하는 마음도 자격이 된다';
+        if(window.gtag)gtag('event','share_click',{method:navigator.share?'native_share':'copy_link',placement:s.screen==='title'?'title':'game_header',scene_id:s.id||'title'});
         if (navigator.share) { navigator.share({ title, text, url }).catch(()=>{}); }
         else { navigator.clipboard.writeText(url).then(()=>alert('\ub9c1\ud06c\uac00 \ubcf5\uc0ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4!')).catch(()=>{}); }
       },
